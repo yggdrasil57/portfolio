@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Détail d'un Cube CESI de Théo BORTOLOTTO avec documents, livrables et aperçu du contenu."
+    >
+    <meta name="theme-color" content="#f7f8f7">
+    <title>Cube CESI | Théo BORTOLOTTO</title>
+    <link rel="icon" href="assets/profile-placeholder.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="data.js" defer></script>
+    <script src="cube-detail.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <header class="site-header is-scrolled" data-header>
+      <nav class="nav container" aria-label="Navigation principale">
+        <a class="brand" href="index.html#accueil" aria-label="Retour à l'accueil">
+          <span class="brand-mark" data-profile="initials">TB</span>
+          <span class="brand-text" data-profile="name">Théo BORTOLOTTO</span>
+        </a>
+
+        <div class="nav-panel nav-panel-detail">
+          <a href="index.html#apropos" data-i18n="navAbout">A propos</a>
+          <a href="index.html#competences" data-i18n="navSkills">Compétences</a>
+          <a href="index.html#cubes" data-i18n="navCubes">Cubes CESI</a>
+          <a href="index.html#contact" data-i18n="navContact">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <a class="btn btn-small btn-secondary" href="index.html#cubes" data-i18n="cubePageBack">Retour au portfolio</a>
+          <button
+            class="language-toggle"
+            type="button"
+            aria-label="Switch to English"
+            data-language-toggle
+          >
+            EN
+          </button>
+          <button
+            class="icon-button"
+            type="button"
+            aria-label="Activer le mode sombre"
+            data-theme-toggle
+            data-i18n-aria="darkMode"
+          >
+            <span class="theme-glyph" aria-hidden="true"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="cube-page">
+      <section class="cube-detail-hero">
+        <div class="container cube-detail-hero-inner">
+          <p class="eyebrow" data-i18n="cubePageEyebrow">Détail du Cube CESI</p>
+          <h1 id="cube-detail-title">Cube CESI</h1>
+          <p class="hero-lead" id="cube-detail-summary"></p>
+          <div class="cube-detail-actions" id="cube-document-actions"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container cube-detail-layout">
+          <aside class="cube-detail-sidebar" aria-label="Résumé du cube">
+            <div class="detail-panel" id="cube-detail-meta"></div>
+          </aside>
+
+          <div class="cube-detail-main">
+            <section class="document-section" aria-labelledby="document-viewer-title">
+              <div class="document-heading">
+                <div>
+                  <p class="eyebrow" data-i18n="cubeDocumentsTitle">Documents du cube</p>
+                  <h2 id="document-viewer-title" data-i18n="cubeViewerTitle">Visualisation du document</h2>
+                </div>
+              </div>
+              <div class="document-viewer" id="document-viewer"></div>
+            </section>
+
+            <section class="document-section" aria-labelledby="document-list-title">
+              <div class="document-heading">
+                <h2 id="document-list-title" data-i18n="cubeDownloadTitle">Choisir un document</h2>
+              </div>
+              <div class="document-list" id="document-list"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span data-current-year></span> <span data-profile="name">Théo BORTOLOTTO</span>. <span data-i18n="footerSuffix">Portfolio étudiant CESI.</span></p>
+        <a href="index.html#cubes" data-i18n="cubePageBack">Retour au portfolio</a>
+      </div>
+    </footer>
+  </body>
+</html>

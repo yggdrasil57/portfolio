@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Portfolio de Théo BORTOLOTTO, étudiant CESI en infrastructures et cybersécurité, à la recherche d'un poste d'administrateur systèmes et réseaux, consultant IT ou chef de projet IT junior."
+    >
+    <meta name="theme-color" content="#f7f8f7">
+    <title>Théo BORTOLOTTO | Portfolio IT</title>
+    <link rel="icon" href="assets/profile-placeholder.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="data.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <header class="site-header" data-header>
+      <nav class="nav container" aria-label="Navigation principale">
+        <a class="brand" href="#accueil" aria-label="Retour à l'accueil">
+          <span class="brand-mark" data-profile="initials">TB</span>
+          <span class="brand-text" data-profile="name">Théo BORTOLOTTO</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Ouvrir le menu"
+          aria-controls="primary-navigation"
+          aria-expanded="false"
+          data-nav-toggle
+          data-i18n-aria="openMenu"
+        >
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-panel" id="primary-navigation" data-nav-panel>
+          <a href="#apropos" data-i18n="navAbout">A propos</a>
+          <a href="#competences" data-i18n="navSkills">Compétences</a>
+          <a href="#profil-plus" data-i18n="navProfile">Profil</a>
+          <a href="#cubes" data-i18n="navCubes">Cubes CESI</a>
+          <a href="#projets" data-i18n="navProjects">Projets</a>
+          <a href="#parcours" data-i18n="navTimeline">Parcours</a>
+          <a href="#contact" data-i18n="navContact">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <a class="btn btn-small btn-secondary" href="assets/cv.pdf" download data-profile-link="cv">
+            <span data-i18n="cvButton">Télécharger CV</span>
+          </a>
+          <button
+            class="language-toggle"
+            type="button"
+            aria-label="Switch to English"
+            data-language-toggle
+          >
+            EN
+          </button>
+          <button
+            class="icon-button"
+            type="button"
+            aria-label="Activer le mode sombre"
+            data-theme-toggle
+            data-i18n-aria="darkMode"
+          >
+            <span class="theme-glyph" aria-hidden="true"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="accueil" aria-labelledby="hero-title">
+        <div class="hero-field" aria-hidden="true"></div>
+        <div class="container hero-layout">
+          <div class="hero-copy reveal">
+            <p class="eyebrow" data-profile="status">Etudiant CESI - Infrastructures & Cybersécurité</p>
+            <h1 id="hero-title">
+              <span data-profile="name">Théo BORTOLOTTO</span>
+              <span data-profile="role">Administrateur Systèmes & Réseaux</span>
+            </h1>
+            <p class="hero-lead" data-profile="tagline">
+              Profil IT polyvalent, orienté systèmes, réseaux, support utilisateurs et coordination de projets techniques.
+            </p>
+            <div class="hero-actions" aria-label="Actions principales">
+              <a class="btn btn-primary" href="#cubes" data-i18n="heroPrimary">Voir mes réalisations</a>
+              <a class="btn btn-ghost" href="#contact" data-i18n="heroSecondary">Me contacter</a>
+            </div>
+            <div class="search-card" aria-label="Recherche professionnelle">
+              <span class="search-label" data-i18n="searchLabel">Recherche actuelle</span>
+              <div class="role-list" id="target-roles">
+                <span>Administrateur Systèmes et Réseaux</span>
+                <span>Consultant IT</span>
+                <span>Chef de projet IT Junior</span>
+              </div>
+              <dl class="job-details" id="job-details">
+                <div>
+                  <dt>Disponibilité</dt>
+                  <dd>Octobre 2026</dd>
+                </div>
+                <div>
+                  <dt>Mobilité</dt>
+                  <dd>Luxembourg</dd>
+                </div>
+                <div>
+                  <dt>Permis</dt>
+                  <dd>Permis B - véhiculé</dd>
+                </div>
+              </dl>
+            </div>
+            <dl class="hero-metrics" id="hero-metrics" aria-label="Chiffres clés du portfolio"></dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="apropos" aria-labelledby="about-title">
+        <div class="container split-layout">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="aboutEyebrow">A propos</p>
+            <h2 id="about-title" data-i18n="aboutTitle">Un profil IT terrain, structuré et orienté utilisateurs.</h2>
+          </div>
+
+          <div class="about-content reveal">
+            <div class="prose" id="about-text"></div>
+            <div class="about-tags" id="about-tags" aria-label="Informations rapides" data-i18n-aria="profileQuickInfo"></div>
+          </div>
+
+          <figure class="profile-panel reveal delay-1">
+            <img src="assets/profile-placeholder.svg" alt="Portrait professionnel illustré de Théo BORTOLOTTO" data-i18n-alt="profileAlt">
+            <figcaption>
+              <strong data-profile="name">Théo BORTOLOTTO</strong>
+              <span data-profile="location">France</span>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="competences" aria-labelledby="skills-title">
+        <div class="container">
+          <div class="section-heading narrow reveal">
+            <p class="eyebrow" data-i18n="skillsEyebrow">Compétences</p>
+            <h2 id="skills-title" data-i18n="skillsTitle">Des compétences centrées sur l'exploitation, le réseau et la sécurité.</h2>
+            <p data-i18n="skillsText">
+              Une lecture rapide des domaines mobilisés en alternance, dans mes cubes CESI et dans mes projets personnels.
+            </p>
+          </div>
+          <div class="skills-grid" id="skills-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="profil-plus" aria-labelledby="profile-extra-title">
+        <div class="container profile-extra-layout">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="profileExtraEyebrow">Savoir-être & centres d'intérêt</p>
+            <h2 id="profile-extra-title" data-i18n="profileExtraTitle">Ce que mes loisirs et ma manière de travailler apportent à mon profil IT.</h2>
+            <p data-i18n="profileExtraText">
+              J'ai gardé ici les éléments qui ont un vrai lien avec les postes que je vise : support, infrastructure, cybersécurité, conseil et gestion de projet.
+            </p>
+          </div>
+
+          <section class="profile-extra-block reveal delay-1" aria-labelledby="soft-skills-title">
+            <h3 id="soft-skills-title" data-i18n="softSkillsTitle">Soft skills</h3>
+            <div class="trait-grid" id="soft-skills-grid"></div>
+          </section>
+
+          <section class="profile-extra-block reveal delay-2" aria-labelledby="interests-title">
+            <h3 id="interests-title" data-i18n="interestsTitle">Centres d'intérêt utiles au métier</h3>
+            <div class="trait-grid" id="interests-grid"></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="section" id="cubes" aria-labelledby="cubes-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="cubesEyebrow">Cubes CESI</p>
+            <h2 id="cubes-title" data-i18n="cubesTitle">Des projets présentés comme de vraies études de cas IT.</h2>
+            <p data-i18n="cubesText">
+              Chaque cube met en avant la problématique, la démarche, la solution produite, les livrables et les compétences développées.
+            </p>
+          </div>
+
+          <div class="cube-intro reveal" aria-labelledby="cube-intro-title">
+            <div>
+              <h3 id="cube-intro-title" data-i18n="cubesIntroTitle">C'est quoi un Cube CESI ?</h3>
+              <p data-i18n="cubesIntroText">
+                Un cube est un projet de formation CESI construit comme une mise en situation professionnelle. Il combine une partie groupe et une partie individuelle, avec un contexte, des livrables, une soutenance et des compétences à démontrer.
+              </p>
+            </div>
+            <ul>
+              <li data-i18n="cubesIntroPointOne">Analyser un contexte réel ou réaliste</li>
+              <li data-i18n="cubesIntroPointTwo">Produire des livrables exploitables</li>
+              <li data-i18n="cubesIntroPointThree">Justifier les choix techniques et projet</li>
+            </ul>
+          </div>
+
+          <div class="filter-bar reveal" id="cube-filters" role="list" aria-label="Filtrer les cubes CESI" data-i18n-aria="filterAria"></div>
+          <div class="cubes-grid" id="cubes-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="section section-muted" id="projets" aria-labelledby="projects-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="projectsEyebrow">Projets personnels</p>
+            <h2 id="projects-title" data-i18n="projectsTitle">Des réalisations complémentaires, orientées pratique et progression.</h2>
+            <p data-i18n="projectsText">
+              Une sélection de travaux personnels et de démarches techniques qui prolongent mon parcours en infrastructure IT.
+            </p>
+          </div>
+          <div class="projects-grid" id="projects-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="parcours" aria-labelledby="timeline-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="timelineEyebrow">Parcours</p>
+            <h2 id="timeline-title" data-i18n="timelineTitle">Diplômes, master en cours et expériences pro, dans l'ordre.</h2>
+          </div>
+
+          <div class="path-layout">
+            <section class="path-section path-current reveal" aria-labelledby="current-education-title">
+              <p class="path-label" id="current-education-title" data-i18n="currentEducationLabel">Diplôme en cours</p>
+              <div id="current-education"></div>
+            </section>
+
+            <section class="path-section reveal" aria-labelledby="education-title">
+              <h3 id="education-title" data-i18n="completedEducationLabel">Diplômes obtenus</h3>
+              <div class="timeline compact" id="education-list"></div>
+            </section>
+
+            <section class="path-section experience-path reveal" aria-labelledby="experience-title">
+              <h3 id="experience-title" data-i18n="experienceLabel">Expériences professionnelles</h3>
+              <div class="timeline" id="experience-list"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="container contact-layout">
+          <div class="section-heading reveal">
+            <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
+            <h2 id="contact-title" data-i18n="contactTitle">Disponible pour échanger sur une opportunité IT.</h2>
+            <p data-i18n="contactText">
+              Je recherche un poste d'Administrateur Systèmes et Réseaux, Consultant IT ou Chef de projet IT Junior à partir d'octobre 2026.
+            </p>
+          </div>
+
+          <div class="contact-links reveal delay-1">
+            <div class="contact-method">
+              <span>Email</span>
+              <a href="mailto:theo.bortolotto@yahoo.com" data-profile-link="email">theo.bortolotto@yahoo.com</a>
+            </div>
+            <div class="contact-method">
+              <span>Téléphone</span>
+              <a href="tel:+33615662401" data-profile-link="phone">06 15 66 24 01</a>
+            </div>
+            <div class="contact-method">
+              <span>LinkedIn</span>
+              <a href="https://www.linkedin.com/in/t-bortolotto" target="_blank" rel="noreferrer" data-profile-link="linkedin">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span data-current-year></span> <span data-profile="name">Théo BORTOLOTTO</span>. <span data-i18n="footerSuffix">Portfolio étudiant CESI.</span></p>
+        <a href="#accueil">Retour à l'accueil</a>
+      </div>
+    </footer>
+
+    <button class="back-to-top" type="button" aria-label="Retour en haut" data-back-to-top data-i18n-aria="backToTop">
+      <span aria-hidden="true"></span>
+    </button>
+
+    <dialog class="cube-dialog" id="cube-dialog" aria-labelledby="cube-dialog-title">
+      <div class="dialog-shell">
+        <button class="dialog-close" type="button" aria-label="Fermer le détail" data-dialog-close data-i18n-aria="dialogClose"></button>
+        <div id="cube-dialog-content"></div>
+      </div>
+    </dialog>
+  </body>
+</html>
