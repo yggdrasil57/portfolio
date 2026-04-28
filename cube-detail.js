@@ -34,6 +34,18 @@ function tagList(items) {
   return (items || []).map((item) => `<span class="tag">${escapeHtml(item)}</span>`).join("");
 }
 
+function getDocumentUrl(documentItem) {
+  if (!documentItem?.path) return "";
+
+  try {
+    const url = new URL(documentItem.path, window.location.href);
+    const safeProtocols = ["http:", "https:", "file:"];
+    return safeProtocols.includes(url.protocol) ? url.href : "";
+  } catch {
+    return "";
+  }
+}
+
 function getCube() {
   const params = new URLSearchParams(window.location.search);
   const cubeId = params.get("id");
@@ -119,6 +131,14 @@ function renderMeta(cube) {
       <div class="tag-row">${tagList(cube.technologies)}</div>
     </section>
     <section>
+      <h3>${escapeHtml(t("toolsLabel"))}</h3>
+      <div class="tag-row">${tagList(cube.tools || cube.technologies)}</div>
+    </section>
+    <section>
+      <h3>${escapeHtml(t("referencesLabel"))}</h3>
+      <div class="tag-row">${tagList(cube.references || [])}</div>
+    </section>
+    <section>
       <h3>${escapeHtml(t("deliverablesLabel"))}</h3>
       <ul>${listItems(cube.deliverables)}</ul>
     </section>
@@ -129,10 +149,40 @@ function renderMeta(cube) {
   `;
 }
 
+function renderDocumentEmbed(selectedDocument) {
+  const documentUrl = getDocumentUrl(selectedDocument);
+  if (!documentUrl) {
+    return `
+      <div class="viewer-empty">
+        <p>${escapeHtml(t("noEmbeddedViewer"))}</p>
+      </div>
+    `;
+  }
+
+  if (selectedDocument.viewer === "pdf" || selectedDocument.type === "PDF") {
+    return `
+      <div class="document-frame-wrap">
+        <iframe
+          class="document-frame"
+          title="${escapeHtml(selectedDocument.label)}"
+          src="${escapeHtml(`${documentUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`)}"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        ></iframe>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="viewer-empty viewer-empty-compact">
+      <p>${escapeHtml(t("noEmbeddedViewer"))}</p>
+    </div>
+  `;
+}
+
 function renderViewer(cube, documentIndex = activeDocumentIndex) {
   const documents = cube.documents || [];
   const selectedDocument = documents[documentIndex];
-  const previewSections = cube.documentPreview || [];
 
   if (!selectedDocument) {
     $("#document-viewer").innerHTML = `
@@ -143,14 +193,7 @@ function renderViewer(cube, documentIndex = activeDocumentIndex) {
     return;
   }
 
-  if (!previewSections.length) {
-    $("#document-viewer").innerHTML = `
-      <div class="viewer-empty">
-        <p>${escapeHtml(t("noEmbeddedViewer"))}</p>
-      </div>
-    `;
-    return;
-  }
+  const previewSections = selectedDocument.sections || cube.documentPreview || [];
 
   $("#document-viewer").innerHTML = `
     <div class="internal-viewer" role="region" aria-label="${escapeHtml(selectedDocument.label)}">
@@ -158,21 +201,28 @@ function renderViewer(cube, documentIndex = activeDocumentIndex) {
         <div>
           <span>${escapeHtml(t("viewerSelectedLabel"))}</span>
           <strong>${escapeHtml(selectedDocument.label)}</strong>
+          ${selectedDocument.summary ? `<p>${escapeHtml(selectedDocument.summary)}</p>` : ""}
         </div>
         <span class="viewer-file-type">${escapeHtml(selectedDocument.type)}</span>
       </div>
-      <div class="internal-viewer-pages">
-        ${previewSections
-          .map(
-            (section, index) => `
-              <article class="viewer-page">
-                <span>${escapeHtml(t("viewerPageLabel"))} ${index + 1}</span>
-                <h3>${escapeHtml(section.title)}</h3>
-                <ul>${listItems(section.items)}</ul>
-              </article>
-            `
-          )
-          .join("")}
+      ${renderDocumentEmbed(selectedDocument)}
+      <div class="document-summary-panel">
+        <div class="document-summary-heading">
+          <span>${escapeHtml(t("documentSummaryLabel"))}</span>
+        </div>
+        <div class="internal-viewer-pages">
+          ${previewSections
+            .map(
+              (section, index) => `
+                <article class="viewer-page">
+                  <span>${escapeHtml(t("viewerPageLabel"))} ${index + 1}</span>
+                  <h3>${escapeHtml(section.title)}</h3>
+                  <ul>${listItems(section.items)}</ul>
+                </article>
+              `
+            )
+            .join("")}
+        </div>
       </div>
     </div>
   `;

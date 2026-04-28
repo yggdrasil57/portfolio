@@ -3,12 +3,8 @@ window.portfolioData = {
     name: "Théo BORTOLOTTO",
     initials: "TB",
     role: "Administrateur Systèmes & Réseaux",
-    status: "Etudiant CESI - Infrastructures & Cybersécurité",
-    tagline:
-      "Je construis mon parcours autour de l'administration systèmes/réseaux, de la sécurité et du suivi de projets IT.",
     location: "Nancy / Luxembourg",
     email: "theo.bortolotto@yahoo.com",
-    phone: "06 15 66 24 01",
     linkedin: "https://www.linkedin.com/in/t-bortolotto",
     github: "",
     cv: "assets/cv.pdf",
@@ -20,14 +16,13 @@ window.portfolioData = {
       { label: "Permis", value: "Permis B - véhiculé" }
     ],
     about: [
-      "Je suis en Master Manager en Infrastructures et Cybersécurité des Systèmes d'Information au CESI de Nancy. Mon fil conducteur est assez simple : comprendre le besoin, garder une vision terrain et produire quelque chose de clair à exploiter.",
-      "En alternance, j'ai travaillé sur du support N1/N2, du poste de travail, du réseau, de l'inventaire, Intune, des migrations et des sujets de sécurité. J'aime quand une infrastructure est documentée, maintenable et compréhensible par les utilisateurs.",
-      "Pour octobre 2026, je vise un poste d'Administrateur Systèmes et Réseaux, Consultant IT ou Chef de projet IT Junior, idéalement sur le Luxembourg."
+      "Je suis en master infrastructures et cybersécurité au CESI de Nancy. J'avance surtout par le terrain : comprendre ce qui bloque, documenter proprement, puis proposer une solution qui tient dans la vraie vie.",
+      "Mes alternances m'ont amené sur du support N1/N2, du réseau, de l'inventaire, des migrations, de la documentation et des sujets de sécurité. Ce que je cherche à montrer ici, ce n'est pas une liste de mots-clés : c'est ma façon de raisonner sur un SI.",
+      "A partir d'octobre 2026, je vise un poste d'Administrateur Systèmes et Réseaux, Consultant IT ou Chef de projet IT Junior, avec une préférence pour le Luxembourg et le Grand Est."
     ],
-    tags: ["CESI Nancy", "Recherche emploi", "Disponible octobre 2026", "Mobilité Luxembourg / Grand Est"],
+    tags: ["Master MICSI", "Recherche emploi", "Disponible octobre 2026", "Luxembourg / Grand Est"],
     metrics: [
       { value: "5 ans", label: "d'alternance IT" },
-      { value: "4", label: "cubes CESI présentés" },
       { value: "N1/N2", label: "support utilisateurs" }
     ]
   },
@@ -35,7 +30,7 @@ window.portfolioData = {
   skills: [
     {
       category: "Systèmes",
-      items: ["Windows", "Linux", "VMware", "Hyper-V", "VirtualBox", "Intune", "Sauvegardes"]
+      items: ["Windows", "Linux", "VMware", "Hyper-V", "VirtualBox", "Sauvegardes", "Active Directory"]
     },
     {
       category: "Réseaux",
@@ -51,7 +46,7 @@ window.portfolioData = {
     },
     {
       category: "Cybersécurité",
-      items: ["Sécurisation SI", "Gestion des risques", "Bonnes pratiques", "Monitoring", "Root Me", "Anglais technique"]
+      items: ["Sécurisation SI", "Gestion des risques", "EBIOS RM", "CISO Assistant", "Root Me", "Bonnes pratiques"]
     },
     {
       category: "Outils",
@@ -118,20 +113,33 @@ window.portfolioData = {
       solution:
         "Proposition d'une cible hybride : cloud et on-premise, migration Microsoft 365, mise à jour Active Directory, réseau modernisé, supervision, sauvegardes 3-2-1 et renouvellement du matériel industriel.",
       technologies: ["Windows Server 2022", "Microsoft 365", "Azure / OVH", "Cisco", "Aruba", "pfSense", "Zabbix", "NAS Synology"],
+      tools: ["Cisco ISR 4461", "Catalyst 9200 / 9500", "Aruba AP22", "pfSense", "Zabbix", "OVH", "Microsoft 365", "Synology NAS", "SAP"],
+      references: ["Architecture hybride", "SD-WAN", "QoS", "VLAN", "RACI", "Sauvegarde 3-2-1", "PCA / PRA", "RTO / RPO"],
       deliverables: ["Audit de l'existant", "Note de cadrage", "Analyse des risques", "Architecture cible", "Planning prévisionnel", "Matrice RACI", "Plan de déploiement et formation", "Contrat de maintenance"],
       competencies: ["Audit d'infrastructure", "Architecture hybride", "Réseau industriel", "Planification", "Gestion des risques", "Documentation technique"],
       documents: [
         {
           label: "Présentation SmartFactory",
-          type: "PowerPoint",
-          path: "assets/cubes/cube1-smartfactory-presentation.pptx",
-          viewable: false
-        },
-        {
-          label: "Contexte du sujet",
-          type: "Word",
-          path: "assets/cubes/cube1-smartfactory-contexte.docx",
-          viewable: false
+          type: "PDF",
+          path: "assets/cubes/cube1-smartfactory-presentation.pdf",
+          viewable: true,
+          viewer: "pdf",
+          summary:
+            "Soutenance de modernisation IT : état des lieux, limites, cible hybride, choix réseau/système/industrie, budget, plan de déploiement et maintenance.",
+          sections: [
+            {
+              title: "Ce que montre le PowerPoint",
+              items: ["Contexte SmartFactory : 800 employés, 4 sites de production et SI vieillissant.", "Analyse des limites : Windows Server 2008, Exchange 2010, réseau non redondé, peu de supervision et segmentation faible.", "Cible proposée : SD-WAN, VLAN, Wi-Fi Aruba, firewall, Microsoft 365, supervision Zabbix et sauvegarde 3-2-1."]
+            },
+            {
+              title: "Outils et choix visibles",
+              items: ["Cisco ISR 4461, Catalyst 9200/9500, Aruba AP22, pfSense, Zabbix, OVH, Microsoft 365, Synology NAS et SAP.", "Matrice RACI, planning prévisionnel, analyse des risques, PCA/PRA, RTO/RPO et contrat de maintenance.", "Déploiement réseau, système, cloud et industriel avec formation des utilisateurs."]
+            },
+            {
+              title: "Ce que je veux mettre en avant",
+              items: ["Capacité à partir d'un SI existant et à construire une cible cohérente.", "Lecture réseau/système/sécurité au lieu d'une simple liste de matériel.", "Vision projet : planning, rôles, risques, coûts, remédiation et maintenance."]
+            }
+          ]
         }
       ],
       documentPreview: [
@@ -165,6 +173,8 @@ window.portfolioData = {
       solution:
         "Formalisation d'un PMP avec gouvernance, planning, lots de travail, risques, communication, accompagnement des utilisateurs et critères de validation.",
       technologies: ["Microsoft 365", "Teams", "SharePoint", "Exchange Online", "PMP", "WBS", "RACI", "Planning"],
+      tools: ["PMP", "WBS", "RACI", "Registre des risques", "Microsoft 365", "Teams", "SharePoint", "Exchange Online"],
+      references: ["PMBOK / PMP", "Gouvernance projet", "Conduite du changement", "Plan de communication", "Gestion des parties prenantes"],
       deliverables: ["Plan de Management de Projet", "Périmètre projet", "Planning", "Organisation des responsabilités", "Registre des risques", "Plan de communication", "Plan d'accompagnement"],
       competencies: ["Cadrage projet", "Gestion des parties prenantes", "Planification", "Suivi des risques", "Communication", "Conduite du changement"],
       documents: [
@@ -172,7 +182,20 @@ window.portfolioData = {
           label: "PMP Microsoft 365",
           type: "PDF",
           path: "assets/cubes/cube2-pmp-microsoft365.pdf",
-          viewable: true
+          viewable: true,
+          viewer: "pdf",
+          summary:
+            "Plan de management de projet pour une migration Microsoft 365 : cadrage, gouvernance, lots de travail, risques, communication et validation.",
+          sections: [
+            {
+              title: "Synthèse claire du fichier",
+              items: ["Le document sert à piloter une migration Microsoft 365, pas seulement à décrire la solution technique.", "Il structure le périmètre, les acteurs, les livrables, le planning et les critères de validation.", "Il met l'accent sur la communication, la conduite du changement et la gestion des risques."]
+            },
+            {
+              title: "Outils et référentiels mis en avant",
+              items: ["PMP/PMBOK pour la structure de pilotage.", "WBS pour découper le travail, RACI pour clarifier les responsabilités et registre des risques pour suivre les points sensibles.", "Microsoft 365, Teams, SharePoint et Exchange Online pour la cible de migration."]
+            }
+          ]
         }
       ],
       documentPreview: [
@@ -202,6 +225,8 @@ window.portfolioData = {
       solution:
         "Priorisation de mesures concrètes : durcissement des accès, segmentation réseau, règles firewall/VPN, sauvegardes, supervision, procédures de réponse à incident et sensibilisation.",
       technologies: ["VLAN", "Firewall", "VPN", "MFA", "Active Directory", "Sauvegardes", "Supervision", "PCA / PRA"],
+      tools: ["CISO Assistant", "EBIOS RM", "Active Directory", "MFA", "Firewall", "VPN", "Supervision", "Sauvegardes"],
+      references: ["EBIOS RM", "ISO 27005", "CIS Controls", "Moindre privilège", "Défense en profondeur", "PCA / PRA"],
       deliverables: ["Analyse des risques", "Plan de sécurisation", "Schéma cible sécurisé", "Mesures de durcissement", "Procédures d'exploitation", "Plan de remédiation", "Synthèse de continuité"],
       competencies: ["Cybersécurité infrastructure", "Gestion des risques", "Segmentation réseau", "Contrôle d'accès", "Continuité d'activité", "Documentation sécurité"],
       documents: [
@@ -209,7 +234,20 @@ window.portfolioData = {
           label: "Sécuriser les infrastructures du SI",
           type: "PDF",
           path: "assets/cubes/cube3-securisation-si.pdf",
-          viewable: true
+          viewable: true,
+          viewer: "pdf",
+          summary:
+            "Dossier de sécurisation d'une infrastructure : risques, mesures prioritaires, segmentation, accès, continuité d'activité et plan de remédiation.",
+          sections: [
+            {
+              title: "Synthèse claire du fichier",
+              items: ["Le document reprend le contexte SmartFactory avec un angle sécurité.", "Il cherche à réduire les risques avant exploitation : accès, réseau, sauvegardes, supervision et procédures.", "La logique est progressive : identifier les risques, prioriser les mesures et rendre les actions exploitables par une équipe IT."]
+            },
+            {
+              title: "Outils et référentiels mis en avant",
+              items: ["CISO Assistant et EBIOS RM pour structurer l'analyse de risques.", "ISO 27005, CIS Controls, défense en profondeur et principe de moindre privilège comme repères de sécurisation.", "MFA, VLAN, firewall, VPN, Active Directory, supervision, sauvegardes et PCA/PRA comme axes techniques."]
+            }
+          ]
         }
       ],
       documentPreview: [
@@ -239,6 +277,8 @@ window.portfolioData = {
       solution:
         "Mise en place attendue d'une logique de catalogue de services, de workflow incidents/demandes, de gestion des changements, d'indicateurs et de base de connaissances.",
       technologies: ["ITIL", "GLPI", "ServiceNow", "SLA", "KPI", "Catalogue de services", "Base de connaissances"],
+      tools: ["ITIL", "GLPI", "ServiceNow", "SLA", "KPI", "Catalogue de services", "Base de connaissances"],
+      references: ["ITIL 4", "Gestion des incidents", "Gestion des demandes", "Gestion des changements", "Amélioration continue"],
       deliverables: ["Cartographie des services", "Processus incidents et demandes", "Modèle de priorisation", "Processus de changement", "Indicateurs de suivi", "Plan d'amélioration continue"],
       competencies: ["IT Service Management", "Support IT", "Amélioration continue", "Qualité de service", "Communication utilisateurs", "Pilotage opérationnel"],
       documents: [],
@@ -304,28 +344,28 @@ window.portfolioData = {
 
   experiences: [
     {
-      period: "Octobre 2024 - Septembre 2026",
-      title: "Référent informatique et gestionnaire de projet - EHPAD Saint-Charles",
+      period: "Octobre 2024 - Octobre 2025",
+      title: "Référent Informatique - Gestion de projet - EHPAD Saint-Charles",
       description:
-        "Gestion de l'infrastructure, support utilisateurs, sécurisation du SI, ticketing, stock, migrations cloud, plan de formation et préparation à une évaluation externe.",
-      done: ["Gestion du support et des demandes utilisateurs", "Suivi du parc et du stock informatique", "Participation à des migrations cloud", "Mise en place de documents et procédures"],
-      learned: ["Prioriser dans un environnement sensible", "Expliquer l'IT à des utilisateurs non techniques", "Relier exploitation, sécurité et gestion de projet"]
+        "Référent Informatique - Gestion de projet en alternance.",
+      done: ["Gestion de l'infrastructure informatique existante", "Support utilisateurs et maintenance du parc", "Mise en place de la sécurisation de la structure SI", "Migrations des solutions métiers dans le cloud", "Mise en place d'une solution de ticket", "Mise en place d'une solution de gestion des stocks", "Mise en place d'un plan de formation", "Mise en place de documentation", "Préparation du SI à une évaluation externe"],
+      learned: []
     },
     {
       period: "Septembre 2023 - Septembre 2024",
-      title: "Administrateur Systèmes et Réseaux - Nestlé Waters",
+      title: "Administrateur système et réseau - Nestlé Waters",
       description:
-        "Projet de migration Wi-Fi vers Aruba, modification d'architecture réseau, supervision SOTI, plans réseau Visio, Intune et configuration de commutateurs Cisco.",
-      done: ["Préparation d'une migration Wi-Fi Aruba", "Mise à jour de plans réseau", "Suivi d'équipements via SOTI", "Configuration et vérification d'équipements Cisco"],
-      learned: ["Travailler sur une infrastructure industrielle", "Mesurer l'impact d'une modification réseau", "Documenter pour faciliter les interventions suivantes"]
+        "Administrateur système et réseau en alternance.",
+      done: ["Gestion de projet (changement des bornes Wi-Fi)", "Migration vers Aruba sur les équipements réseaux", "Supervision avec la console SOTI", "Configuration des commutateurs Cisco", "Modification de l'architecture réseau", "Création de plan réseau sur Visio", "Masterisation de smartphone et PC avec Intune"],
+      learned: []
     },
     {
       period: "2021 - 2023",
-      title: "Technicien Systèmes et Réseaux - Nestlé Waters",
+      title: "Technicien Systèmes et Réseaux - Nestlé Waters Supply Est",
       description:
-        "Support niveau 1 et 2, déploiement de postes, smartphones, iPad, terminaux industriels, inventaire réseau et masterisation.",
-      done: ["Support utilisateurs N1/N2", "Déploiement de postes et terminaux mobiles", "Masterisation et préparation de matériel", "Inventaire et premières actions réseau"],
-      learned: ["Diagnostiquer rapidement", "Garder une relation utilisateur propre", "Comprendre les contraintes du terrain industriel"]
+        "Technicien Systèmes et Réseaux en alternance.",
+      done: ["Configuration et déploiement de commutateurs", "Déploiement de différents téléphones", "Déploiement d'IPAD", "Mise à jour et création de classeurs Excel", "Masterisation", "Gestion d'inventaire des équipements réseaux", "Support niveau 1 et 2", "Déploiement de terminaux code-barres industriels"],
+      learned: []
     }
   ]
 };
@@ -335,12 +375,8 @@ window.portfolioDataEn = {
     name: "Théo BORTOLOTTO",
     initials: "TB",
     role: "Systems & Network Administrator",
-    status: "CESI student - Infrastructure & Cybersecurity",
-    tagline:
-      "I am building my path around systems and network administration, security and IT project coordination.",
     location: "Nancy / Luxembourg",
     email: "theo.bortolotto@yahoo.com",
-    phone: "06 15 66 24 01",
     linkedin: "https://www.linkedin.com/in/t-bortolotto",
     github: "",
     cv: "assets/resume.pdf",
@@ -352,14 +388,13 @@ window.portfolioDataEn = {
       { label: "Driving licence", value: "Full licence - own vehicle" }
     ],
     about: [
-      "I am completing a Master's degree in Infrastructure and Information Systems Cybersecurity Management at CESI Nancy. My approach is practical: understand the need, stay close to the field and produce work that is clear to operate.",
-      "During my work-study roles, I have worked on L1/L2 support, workstations, networking, inventory, Intune, migrations and security topics. I like infrastructures that are documented, maintainable and understandable for users.",
-      "From October 2026, I am looking for a Systems and Network Administrator, IT Consultant or Junior IT Project Manager role, ideally in Luxembourg."
+      "I am completing a master's degree in infrastructure and cybersecurity at CESI Nancy. I learn best through field work: understand what blocks people, document it properly and propose a solution that can actually be operated.",
+      "My work-study roles have taken me through L1/L2 support, networking, inventory, migrations, documentation and security topics. This portfolio is meant to show how I think about an information system, not just stack keywords.",
+      "From October 2026, I am looking for a Systems and Network Administrator, IT Consultant or Junior IT Project Manager role, preferably in Luxembourg or eastern France."
     ],
-    tags: ["CESI Nancy", "Open to opportunities", "Available October 2026", "Luxembourg / Grand Est mobility"],
+    tags: ["MICSI master's", "Open to opportunities", "Available October 2026", "Luxembourg / Grand Est"],
     metrics: [
       { value: "5 years", label: "IT work-study experience" },
-      { value: "4", label: "CESI cases presented" },
       { value: "L1/L2", label: "user support" }
     ]
   },
@@ -367,7 +402,7 @@ window.portfolioDataEn = {
   skills: [
     {
       category: "Systems",
-      items: ["Windows", "Linux", "VMware", "Hyper-V", "VirtualBox", "Intune", "Backups"]
+      items: ["Windows", "Linux", "VMware", "Hyper-V", "VirtualBox", "Backups", "Active Directory"]
     },
     {
       category: "Networks",
@@ -383,7 +418,7 @@ window.portfolioDataEn = {
     },
     {
       category: "Cybersecurity",
-      items: ["IS hardening", "Risk management", "Best practices", "Monitoring", "Root Me", "Technical English"]
+      items: ["IS hardening", "Risk management", "EBIOS RM", "CISO Assistant", "Root Me", "Best practices"]
     },
     {
       category: "Tools",
@@ -450,20 +485,33 @@ window.portfolioDataEn = {
       solution:
         "Proposal of a hybrid target architecture: cloud and on-premise, Microsoft 365 migration, Active Directory update, network modernization, monitoring, 3-2-1 backups and industrial hardware renewal.",
       technologies: ["Windows Server 2022", "Microsoft 365", "Azure / OVH", "Cisco", "Aruba", "pfSense", "Zabbix", "Synology NAS"],
+      tools: ["Cisco ISR 4461", "Catalyst 9200 / 9500", "Aruba AP22", "pfSense", "Zabbix", "OVH", "Microsoft 365", "Synology NAS", "SAP"],
+      references: ["Hybrid architecture", "SD-WAN", "QoS", "VLAN", "RACI", "3-2-1 backup", "BCP / DRP", "RTO / RPO"],
       deliverables: ["Current-state audit", "Project brief", "Risk analysis", "Target architecture", "Forecast schedule", "RACI matrix", "Deployment and training plan", "Maintenance contract"],
       competencies: ["Infrastructure audit", "Hybrid architecture", "Industrial networking", "Planning", "Risk management", "Technical documentation"],
       documents: [
         {
           label: "SmartFactory presentation",
-          type: "PowerPoint",
-          path: "assets/cubes/cube1-smartfactory-presentation.pptx",
-          viewable: false
-        },
-        {
-          label: "Case context",
-          type: "Word",
-          path: "assets/cubes/cube1-smartfactory-contexte.docx",
-          viewable: false
+          type: "PDF",
+          path: "assets/cubes/cube1-smartfactory-presentation.pdf",
+          viewable: true,
+          viewer: "pdf",
+          summary:
+            "Modernization presentation: current state, limitations, hybrid target, network/system/industrial choices, budget, deployment plan and maintenance.",
+          sections: [
+            {
+              title: "What the PowerPoint shows",
+              items: ["SmartFactory context: 800 employees, 4 production sites and an ageing information system.", "Limitations: Windows Server 2008, Exchange 2010, no network redundancy, weak monitoring and little segmentation.", "Proposed target: SD-WAN, VLANs, Aruba Wi-Fi, firewall, Microsoft 365, Zabbix monitoring and 3-2-1 backup."]
+            },
+            {
+              title: "Visible tools and choices",
+              items: ["Cisco ISR 4461, Catalyst 9200/9500, Aruba AP22, pfSense, Zabbix, OVH, Microsoft 365, Synology NAS and SAP.", "RACI matrix, forecast schedule, risk analysis, BCP/DRP, RTO/RPO and maintenance contract.", "Network, system, cloud and industrial deployment with user training."]
+            },
+            {
+              title: "What it demonstrates",
+              items: ["Ability to start from an existing IS and build a coherent target.", "Network/system/security reasoning rather than a simple hardware list.", "Project view: schedule, roles, risks, costs, remediation and maintenance."]
+            }
+          ]
         }
       ],
       documentPreview: [
@@ -497,6 +545,8 @@ window.portfolioDataEn = {
       solution:
         "Formalization of a PMP covering governance, schedule, work packages, risks, communication, user support and validation criteria.",
       technologies: ["Microsoft 365", "Teams", "SharePoint", "Exchange Online", "PMP", "WBS", "RACI", "Schedule"],
+      tools: ["PMP", "WBS", "RACI", "Risk register", "Microsoft 365", "Teams", "SharePoint", "Exchange Online"],
+      references: ["PMBOK / PMP", "Project governance", "Change management", "Communication plan", "Stakeholder management"],
       deliverables: ["Project Management Plan", "Project scope", "Schedule", "Responsibility structure", "Risk register", "Communication plan", "Change support plan"],
       competencies: ["Project framing", "Stakeholder management", "Planning", "Risk tracking", "Communication", "Change management"],
       documents: [
@@ -504,7 +554,20 @@ window.portfolioDataEn = {
           label: "Microsoft 365 PMP",
           type: "PDF",
           path: "assets/cubes/cube2-pmp-microsoft365.pdf",
-          viewable: true
+          viewable: true,
+          viewer: "pdf",
+          summary:
+            "Project management plan for a Microsoft 365 migration: framing, governance, work packages, risks, communication and validation.",
+          sections: [
+            {
+              title: "Clear file summary",
+              items: ["The document is made to manage a Microsoft 365 migration, not only describe the technical solution.", "It structures scope, stakeholders, deliverables, schedule and validation criteria.", "It focuses on communication, change management and risk handling."]
+            },
+            {
+              title: "Tools and references highlighted",
+              items: ["PMP/PMBOK for project structure.", "WBS to split work, RACI to clarify responsibilities and a risk register to track sensitive points.", "Microsoft 365, Teams, SharePoint and Exchange Online as the migration target."]
+            }
+          ]
         }
       ],
       documentPreview: [
@@ -534,6 +597,8 @@ window.portfolioDataEn = {
       solution:
         "Prioritization of concrete measures: access hardening, network segmentation, firewall/VPN rules, backups, monitoring, incident response procedures and awareness.",
       technologies: ["VLAN", "Firewall", "VPN", "MFA", "Active Directory", "Backups", "Monitoring", "BCP / DRP"],
+      tools: ["CISO Assistant", "EBIOS RM", "Active Directory", "MFA", "Firewall", "VPN", "Monitoring", "Backups"],
+      references: ["EBIOS RM", "ISO 27005", "CIS Controls", "Least privilege", "Defense in depth", "BCP / DRP"],
       deliverables: ["Risk analysis", "Security plan", "Secure target diagram", "Hardening measures", "Operating procedures", "Remediation plan", "Continuity summary"],
       competencies: ["Infrastructure security", "Risk management", "Network segmentation", "Access control", "Business continuity", "Security documentation"],
       documents: [
@@ -541,7 +606,20 @@ window.portfolioDataEn = {
           label: "Securing IS infrastructures",
           type: "PDF",
           path: "assets/cubes/cube3-securisation-si.pdf",
-          viewable: true
+          viewable: true,
+          viewer: "pdf",
+          summary:
+            "Infrastructure security file: risks, priority measures, segmentation, access control, business continuity and remediation plan.",
+          sections: [
+            {
+              title: "Clear file summary",
+              items: ["The document reuses the SmartFactory context with a security focus.", "It aims to reduce risks before operation: access, network, backups, monitoring and procedures.", "The logic is progressive: identify risks, prioritize controls and make actions usable for an IT team."]
+            },
+            {
+              title: "Tools and references highlighted",
+              items: ["CISO Assistant and EBIOS RM to structure risk analysis.", "ISO 27005, CIS Controls, defense in depth and least privilege as security references.", "MFA, VLANs, firewall, VPN, Active Directory, monitoring, backups and BCP/DRP as technical controls."]
+            }
+          ]
         }
       ],
       documentPreview: [
@@ -571,6 +649,8 @@ window.portfolioDataEn = {
       solution:
         "Expected implementation of a service catalogue approach, incident/request workflow, change management, indicators and knowledge base.",
       technologies: ["ITIL", "GLPI", "ServiceNow", "SLA", "KPI", "Service catalogue", "Knowledge base"],
+      tools: ["ITIL", "GLPI", "ServiceNow", "SLA", "KPI", "Service catalogue", "Knowledge base"],
+      references: ["ITIL 4", "Incident management", "Request management", "Change management", "Continuous improvement"],
       deliverables: ["Service mapping", "Incident and request processes", "Prioritization model", "Change process", "Tracking indicators", "Continuous improvement plan"],
       competencies: ["IT Service Management", "IT support", "Continuous improvement", "Service quality", "User communication", "Operational steering"],
       documents: [],
@@ -636,40 +716,40 @@ window.portfolioDataEn = {
 
   experiences: [
     {
-      period: "October 2024 - September 2026",
-      title: "IT referent and project manager - EHPAD Saint-Charles",
+      period: "October 2024 - October 2025",
+      title: "IT Coordinator / Project Support Officer - Saint-Charles Nursing Home",
       description:
-        "Infrastructure management, user support, IS hardening, ticketing, stock management, cloud migrations, training plan and preparation for an external assessment.",
-      done: ["Managed support and user requests", "Tracked IT assets and stock", "Contributed to cloud migrations", "Created documents and procedures"],
-      learned: ["Prioritizing in a sensitive environment", "Explaining IT to non-technical users", "Connecting operations, security and project management"]
+        "IT Coordinator / Project Support Officer, work-study programme.",
+      done: ["Managed the existing IT infrastructure", "Provided user support and hardware maintenance", "Improved IT security", "Supported cloud migration of business applications", "Implemented ticketing and stock management solutions", "Developed a user training plan", "Prepared the IT environment for external assessment"],
+      learned: []
     },
     {
       period: "September 2023 - September 2024",
-      title: "Systems and Network Administrator - Nestlé Waters",
+      title: "Systems & Network Administrator - Nestlé Waters Supply Est",
       description:
-        "Wi-Fi migration project to Aruba, network architecture changes, SOTI monitoring, Visio network diagrams, Intune and Cisco switch configuration.",
-      done: ["Prepared an Aruba Wi-Fi migration", "Updated network diagrams", "Tracked devices with SOTI", "Configured and checked Cisco equipment"],
-      learned: ["Working on industrial infrastructure", "Assessing the impact of network changes", "Documenting to make future interventions easier"]
+        "Systems & Network Administrator, work-study programme.",
+      done: ["Supported Wi-Fi replacement and Aruba migration", "Monitored the SOTI management console", "Configured Cisco switches", "Supported network architecture updates", "Produced network documentation in Visio", "Built smartphone and PC images using Intune"],
+      learned: []
     },
     {
       period: "2021 - 2023",
-      title: "Systems and Network Technician - Nestlé Waters",
+      title: "Systems & Network Technician - Nestlé Waters Supply Est",
       description:
-        "Level 1 and 2 support, deployment of workstations, smartphones, iPads, industrial terminals, network inventory and device imaging.",
-      done: ["L1/L2 user support", "Deployment of workstations and mobile terminals", "Device imaging and preparation", "Inventory and first network tasks"],
-      learned: ["Diagnosing quickly", "Keeping user relations clean", "Understanding industrial field constraints"]
+        "Systems & Network Technician, work-study programme.",
+      done: ["Configured and deployed network switches", "Deployed phones, iPads, and barcode scanners", "Built system images", "Managed network equipment inventory", "Provided Level 1 and Level 2 support", "Maintained Excel tracking files"],
+      learned: []
     }
   ]
 };
 
 window.portfolioUi = {
   fr: {
-    pageTitle: "Théo BORTOLOTTO | Portfolio IT",
+    pageTitle: "Théo BORTOLOTTO | Portfolio",
     metaDescription:
-      "Portfolio de Théo BORTOLOTTO, étudiant CESI en infrastructures et cybersécurité, à la recherche d'un poste d'administrateur systèmes et réseaux, consultant IT ou chef de projet IT junior.",
+      "Portfolio de Théo BORTOLOTTO : systèmes, réseaux, cybersécurité, gestion de projet et documents de cubes CESI consultables.",
     navAbout: "A propos",
     navSkills: "Compétences",
-    navProfile: "Profil",
+    navProfile: "Méthode",
     navCubes: "Cubes CESI",
     navProjects: "Projets",
     navTimeline: "Parcours",
@@ -678,22 +758,57 @@ window.portfolioUi = {
     heroPrimary: "Voir les Cubes CESI",
     heroSecondary: "Mes contacts",
     searchLabel: "Recherche actuelle",
+    visualTitle: "Points clés du CV",
+    visualBadge: "Tech + pilotage",
+    visualSnapshotLabel: "Synthèse profil",
+    visualSnapshotTitle: "Infrastructure, support, sécurité",
+    visualSnapshotText:
+      "5 ans d'alternance avec une double lecture : intervenir techniquement et cadrer proprement les actions.",
+    visualMetricExperience: "alternance IT",
+    visualMetricSupport: "support utilisateurs",
+    visualMetricAvailability: "disponible",
+    visualTechTitle: "Socle technique",
+    visualTechBadge: "Infra",
+    visualTechOne: "Systèmes, réseau, virtualisation",
+    visualTechTwo: "Cisco, Aruba, Microsoft 365",
+    visualTechThree: "Sécurisation SI, EBIOS RM, CISO Assistant",
+    visualManagementTitle: "Pilotage & coordination",
+    visualManagementBadge: "Projet",
+    visualManagementOne: "PMP, RACI, planning, suivi d'actions",
+    visualManagementTwo: "Migration cloud et conduite du changement",
+    visualManagementThree: "Documentation, formation, relation utilisateurs",
+    visualTargetLabel: "Objectif",
+    visualTargetText: "Admin Systèmes & Réseaux / Consultant IT / Chef de projet junior",
+    badgeShortLabel: "Badge CESI",
+    badgeEyebrow: "Badge CESI",
+    badgeTitle: "Citoyen Responsable - Dynamique",
+    badgeText:
+      "Badge obtenu dans le cadre du Mastère CESI autour de la RSE, de l'éthique du manager et du rôle du futur manager dans l'entreprise.",
+    visualNetwork: "Réseau",
+    visualProject: "Projet",
+    visualSecurity: "Sécurité",
     aboutEyebrow: "A propos",
-    aboutTitle: "Terrain, support, infrastructure : c'est là que je progresse le plus.",
+    aboutTitle: "Terrain, support et infrastructure",
+    aboutProofSupportTitle: "Support & exploitation",
+    aboutProofSupportText: "N1/N2, inventaire, suivi de parc, documentation et relation utilisateur.",
+    aboutProofNetworkTitle: "Réseau & infrastructure",
+    aboutProofNetworkText: "Cisco, Aruba, supervision, schémas réseau, migrations et environnements industriels.",
+    aboutProofSecurityTitle: "Projet & sécurité",
+    aboutProofSecurityText: "PMP, RACI, EBIOS RM, CISO Assistant, PCA/PRA et plans de remédiation.",
     skillsEyebrow: "Compétences",
-    skillsTitle: "Ce que j'utilise vraiment dans mes projets et mes alternances.",
+    skillsTitle: "Compétences utilisées en alternance et sur mes projets",
     skillsText:
-      "Un aperçu simple des outils et sujets que j'ai manipulés en entreprise, en cube CESI ou sur mon temps personnel.",
-    profileExtraEyebrow: "Savoir-être & centres d'intérêt",
-    profileExtraTitle: "Ce que mes loisirs et ma manière de travailler apportent à mon profil IT.",
+      "Un aperçu des outils et sujets que j'ai manipulés en entreprise, en cube CESI ou sur mon temps personnel.",
+    profileExtraEyebrow: "Méthode & centres d'intérêt",
+    profileExtraTitle: "Méthode de travail et curiosité technique",
     profileExtraText:
-      "J'ai gardé ici les éléments qui ont un vrai lien avec les postes que je vise : support, infrastructure, cybersécurité, conseil et gestion de projet.",
+      "Je garde ici uniquement les éléments qui ont un lien direct avec les postes que je vise : support, infrastructure, cybersécurité, conseil et gestion de projet.",
     softSkillsTitle: "Soft skills",
     interestsTitle: "Centres d'intérêt utiles au métier",
     cubesEyebrow: "Cubes CESI",
-    cubesTitle: "Mes Cubes CESI, replacés dans leur contexte.",
+    cubesTitle: "Cubes CESI replacés dans leur contexte",
     cubesText:
-      "Je les présente comme des cas pratiques : le problème de départ, ce que j'ai proposé, les livrables et les compétences travaillées.",
+      "Pour chaque cube : problème de départ, démarche, outils utilisés, référentiels, livrables et PDF intégrés.",
     cubesIntroTitle: "C'est quoi un Cube CESI ?",
     cubesIntroText:
       "Un cube est un projet de formation CESI construit comme une mise en situation professionnelle. Il combine une partie groupe et une partie individuelle, avec un contexte, des livrables, une soutenance et des compétences à démontrer. Dans mon portfolio, je les présente comme des cas d'étude IT pour montrer ma démarche, pas seulement le résultat final.",
@@ -708,17 +823,17 @@ window.portfolioUi = {
     cubePreviewTitle: "Aperçu du contenu",
     cubeDownloadTitle: "Choisir un document",
     openDocument: "Visualiser",
-    downloadDocument: "Visualiser",
     noEmbeddedViewer:
-      "La visionneuse intégrée affiche un aperçu structuré de ce document.",
+      "La visualisation complète dépend du navigateur. La synthèse ci-dessous reprend les points importants du document.",
     viewerSelectedLabel: "Document sélectionné",
     viewerPageLabel: "Section",
+    documentSummaryLabel: "Synthèse du fichier",
     projectsEyebrow: "Projets personnels",
-    projectsTitle: "Quelques travaux en plus du cursus.",
+    projectsTitle: "Travaux personnels et pratique technique",
     projectsText:
-      "Des sujets plus petits, mais utiles pour continuer à pratiquer et garder une trace de ce que j'apprends.",
+      "Des sujets plus petits, utiles pour continuer à pratiquer et garder une trace de ce que j'apprends.",
     timelineEyebrow: "Parcours",
-    timelineTitle: "Diplômes, master en cours et expériences pro, dans l'ordre.",
+    timelineTitle: "Diplômes, master en cours et expériences pro",
     currentEducationLabel: "Diplôme en cours",
     completedEducationLabel: "Diplômes obtenus",
     experienceLabel: "Expériences professionnelles",
@@ -727,14 +842,16 @@ window.portfolioUi = {
     contactEyebrow: "Contact",
     contactTitle: "Mes contacts",
     contactText:
-      "Email, téléphone et LinkedIn : le plus simple pour me joindre directement.",
-    footerSuffix: "Portfolio étudiant CESI.",
+      "Email et LinkedIn : le plus simple pour me joindre directement.",
+    footerSuffix: "Portfolio",
     allFilter: "Tous",
     problemLabel: "Problématique",
     contextLabel: "Contexte",
     solutionLabel: "Solution proposée",
     resultLabel: "Résultat / impact",
     technologiesLabel: "Technologies",
+    toolsLabel: "Outils utilisés",
+    referencesLabel: "Référentiels / méthodes",
     deliverablesLabel: "Livrables",
     competenciesLabel: "Compétences développées",
     viewDetail: "Voir le détail",
@@ -748,16 +865,17 @@ window.portfolioUi = {
     filterAria: "Filtrer les cubes CESI",
     profileAlt: "Portrait professionnel illustré de Théo BORTOLOTTO",
     profileQuickInfo: "Informations rapides",
+    profileStrengthsAria: "Points forts du profil",
     backToTop: "Retour en haut",
     dialogClose: "Fermer le détail"
   },
   en: {
-    pageTitle: "Théo BORTOLOTTO | IT Portfolio",
+    pageTitle: "Théo BORTOLOTTO | Portfolio",
     metaDescription:
-      "Portfolio of Théo BORTOLOTTO, CESI infrastructure and cybersecurity student, looking for a systems and network administrator, IT consultant or junior IT project manager role.",
+      "Portfolio of Théo BORTOLOTTO: systems, networks, cybersecurity, project management and viewable CESI case documents.",
     navAbout: "About",
     navSkills: "Skills",
-    navProfile: "Profile",
+    navProfile: "Approach",
     navCubes: "CESI Cases",
     navProjects: "Projects",
     navTimeline: "Background",
@@ -766,22 +884,57 @@ window.portfolioUi = {
     heroPrimary: "View CESI cases",
     heroSecondary: "Contact details",
     searchLabel: "Current search",
+    visualTitle: "Resume highlights",
+    visualBadge: "Tech + delivery",
+    visualSnapshotLabel: "Profile summary",
+    visualSnapshotTitle: "Infrastructure, support, security",
+    visualSnapshotText:
+      "5 years of work-study experience with a dual angle: hands-on technical work and structured action planning.",
+    visualMetricExperience: "IT work-study",
+    visualMetricSupport: "user support",
+    visualMetricAvailability: "available",
+    visualTechTitle: "Technical base",
+    visualTechBadge: "Infra",
+    visualTechOne: "Systems, network, virtualization",
+    visualTechTwo: "Cisco, Aruba, Microsoft 365",
+    visualTechThree: "IS hardening, EBIOS RM, CISO Assistant",
+    visualManagementTitle: "Delivery & coordination",
+    visualManagementBadge: "Project",
+    visualManagementOne: "PMP, RACI, planning, action tracking",
+    visualManagementTwo: "Cloud migration and change management",
+    visualManagementThree: "Documentation, training, user relations",
+    visualTargetLabel: "Target",
+    visualTargetText: "Systems & Network Admin / IT Consultant / Junior Project Manager",
+    badgeShortLabel: "CESI badge",
+    badgeEyebrow: "CESI badge",
+    badgeTitle: "Responsible Citizen - Dynamic",
+    badgeText:
+      "Badge earned during the CESI master's program, focused on CSR, managerial ethics and the role of future managers in organizations.",
+    visualNetwork: "Network",
+    visualProject: "Project",
+    visualSecurity: "Security",
     aboutEyebrow: "About",
-    aboutTitle: "Field work, support and infrastructure are where I progress the most.",
+    aboutTitle: "Field work, support and infrastructure",
+    aboutProofSupportTitle: "Support & operations",
+    aboutProofSupportText: "L1/L2, inventory, asset tracking, documentation and user relations.",
+    aboutProofNetworkTitle: "Network & infrastructure",
+    aboutProofNetworkText: "Cisco, Aruba, monitoring, network diagrams, migrations and industrial environments.",
+    aboutProofSecurityTitle: "Project & security",
+    aboutProofSecurityText: "PMP, RACI, EBIOS RM, CISO Assistant, BCP/DRP and remediation plans.",
     skillsEyebrow: "Skills",
-    skillsTitle: "What I actually use in projects and work-study roles.",
+    skillsTitle: "Tools I use in work-study roles and projects",
     skillsText:
-      "A simple overview of the tools and topics I have handled at work, in CESI cases or through personal practice.",
-    profileExtraEyebrow: "Soft skills & interests",
-    profileExtraTitle: "What my interests and working style bring to my IT profile.",
+      "An overview of the tools and topics I have handled at work, in CESI cases or through personal practice.",
+    profileExtraEyebrow: "Approach & interests",
+    profileExtraTitle: "Working method and technical curiosity",
     profileExtraText:
-      "I kept the elements that connect directly with the roles I am targeting: support, infrastructure, cybersecurity, consulting and project management.",
+      "I kept only the elements that connect directly with the roles I am targeting: support, infrastructure, cybersecurity, consulting and project management.",
     softSkillsTitle: "Soft skills",
     interestsTitle: "Role-relevant interests",
     cubesEyebrow: "CESI cases",
-    cubesTitle: "My CESI cases, with their real context.",
+    cubesTitle: "CESI cases with their context",
     cubesText:
-      "Each case shows the starting issue, what I proposed, the deliverables and the skills I worked on.",
+      "For each case: starting issue, approach, tools, references, deliverables and viewable documents.",
     cubesIntroTitle: "What is a CESI Cube?",
     cubesIntroText:
       "A cube is a CESI training project built as a professional scenario. It combines group work and individual work, with a context, deliverables, a presentation and skills to demonstrate. In this portfolio, I present them as IT case studies to show my approach, not only the final result.",
@@ -796,17 +949,17 @@ window.portfolioUi = {
     cubePreviewTitle: "Content preview",
     cubeDownloadTitle: "Choose a document",
     openDocument: "View",
-    downloadDocument: "View",
     noEmbeddedViewer:
-      "The integrated viewer shows a structured preview of this document.",
+      "Full viewing depends on the browser. The summary below highlights the important points of the document.",
     viewerSelectedLabel: "Selected document",
     viewerPageLabel: "Section",
+    documentSummaryLabel: "File summary",
     projectsEyebrow: "Personal projects",
-    projectsTitle: "A few projects alongside the course.",
+    projectsTitle: "Personal work and technical practice",
     projectsText:
       "Smaller topics that help me keep practicing and track what I learn.",
     timelineEyebrow: "Background",
-    timelineTitle: "Degrees, current Master's and professional experience in order.",
+    timelineTitle: "Degrees, current master's and professional experience",
     currentEducationLabel: "Degree in progress",
     completedEducationLabel: "Completed degrees",
     experienceLabel: "Professional experience",
@@ -815,14 +968,16 @@ window.portfolioUi = {
     contactEyebrow: "Contact",
     contactTitle: "Contact details",
     contactText:
-      "Email, phone and LinkedIn: the simplest ways to reach me directly.",
-    footerSuffix: "CESI student portfolio.",
+      "Email and LinkedIn: the simplest ways to reach me directly.",
+    footerSuffix: "Portfolio",
     allFilter: "All",
     problemLabel: "Problem",
     contextLabel: "Context",
     solutionLabel: "Proposed solution",
     resultLabel: "Result / impact",
     technologiesLabel: "Technologies",
+    toolsLabel: "Tools used",
+    referencesLabel: "References / methods",
     deliverablesLabel: "Deliverables",
     competenciesLabel: "Developed skills",
     viewDetail: "View details",
@@ -836,6 +991,7 @@ window.portfolioUi = {
     filterAria: "Filter CESI cases",
     profileAlt: "Professional illustrated portrait of Théo BORTOLOTTO",
     profileQuickInfo: "Quick information",
+    profileStrengthsAria: "Profile strengths",
     backToTop: "Back to top",
     dialogClose: "Close details"
   }

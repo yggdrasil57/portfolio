@@ -1,6 +1,6 @@
-# Portfolio CESI
+# Portfolio IT
 
-Portfolio statique en HTML, CSS et JavaScript vanilla pour présenter un profil étudiant CESI, les compétences, les expériences, les projets personnels et les cubes CESI sous forme d'études de cas.
+Portfolio statique en HTML, CSS et JavaScript vanilla pour présenter un profil IT, les compétences, les expériences, les projets personnels et les cubes CESI sous forme d'études de cas.
 
 ## Lancer le site
 
@@ -24,7 +24,7 @@ La majorité du contenu est dans `data.js`.
 - `softSkills` : savoir-être affichés dans la section Profil.
 - `interests` : centres d'intérêt liés aux métiers visés.
 - `cubeCategories` : filtres affichés dans la section Cubes CESI.
-- `cubes` : études de cas CESI avec problématique, contexte, solution, technologies, livrables, compétences, documents et aperçu du contenu.
+- `cubes` : études de cas CESI avec problématique, contexte, solution, outils, référentiels, livrables, compétences, documents et synthèse du contenu.
 - `projects` : projets personnels avec liens GitHub ou démo si tu en as. Sinon le site affiche une mention propre.
 - `educationCurrent` : diplôme en cours.
 - `education` : diplômes obtenus.
@@ -38,7 +38,7 @@ Le site est bilingue :
 
 Pour ajouter un cube, duplique un objet dans le tableau `cubes`, change son `id`, puis remplace les textes.
 
-Chaque carte de cube ouvre `cube.html?id=...`. Les documents liés aux Cubes 1, 2 et 3 sont placés dans :
+Chaque carte de cube ouvre `cube.html?id=...`. Les documents sont conservés en PDF uniquement et affichés directement dans la page, avec une synthèse visible sous la visionneuse. Les documents liés aux Cubes 1, 2 et 3 sont placés dans :
 
 ```text
 assets/cubes/
@@ -59,7 +59,7 @@ Pour remplacer un CV, garde le même nom ou modifie le chemin dans `data.js`, pr
 
 ## Remplacer les visuels
 
-- `assets/profile-placeholder.svg` : remplace-le par une photo ou une illustration personnelle.
+- `assets/profile-placeholder.svg` : icône du site utilisée comme favicon.
 - `assets/portfolio-visual.svg` : visuel du hero, modifiable ou remplaçable.
 
 Si tu remplaces par une image JPG ou PNG, mets à jour les chemins dans `index.html`.
@@ -81,8 +81,6 @@ Si tu remplaces par une image JPG ou PNG, mets à jour les chemins dans `index.h
 3. Laisse le dossier de publication vide ou mets `/`.
 4. Déploie. Aucun build command n'est nécessaire.
 
-## Pistes d'amélioration
+## Sécurité
 
-- Ajouter de vraies captures pour chaque cube CESI.
-- Ajouter une page détail dédiée par cube si tu veux partager le portfolio à un jury.
-- Ajouter des preuves téléchargeables : rapports, maquettes, schémas, soutenances.
+Le site reste volontairement simple : pas de dépendance front, pas de formulaire, pas d'appel API côté client. Les pages ajoutent aussi une CSP en `meta`, une politique de referrer et une Permissions-Policy pour limiter les surfaces inutiles sur GitHub Pages.

@@ -35,6 +35,25 @@ function tagList(items) {
   return items.map((item) => `<span class="tag">${escapeHtml(item)}</span>`).join("");
 }
 
+function getSafeUrl(value, allowedProtocols = ["http:", "https:", "file:"]) {
+  if (!value) return "";
+
+  try {
+    const url = new URL(value, window.location.href);
+    return allowedProtocols.includes(url.protocol) ? url.href : "";
+  } catch {
+    return "";
+  }
+}
+
+function documentCountLabel(count) {
+  if (!count) return t("documentationOnRequest");
+  if (currentLocale === "fr") {
+    return `${count} fichier${count > 1 ? "s" : ""}`;
+  }
+  return `${count} file${count > 1 ? "s" : ""}`;
+}
+
 function setStaticContent() {
   document.documentElement.lang = currentLocale;
   document.documentElement.dataset.locale = currentLocale;
@@ -103,19 +122,25 @@ function setProfileContent() {
       return;
     }
 
-    if (key === "phone") {
-      link.href = `tel:${value.replace(/[^\d+]/g, "")}`;
-      link.textContent = value;
-      return;
-    }
-
     if (key === "cv") {
-      link.href = value;
+      const cvUrl = getSafeUrl(value);
+      if (!cvUrl) {
+        link.hidden = true;
+        return;
+      }
+
+      link.href = cvUrl;
       link.setAttribute("download", data.profile.cvDownloadName || "Theo_BORTOLOTTO.pdf");
       return;
     }
 
-    link.href = value;
+    const safeUrl = getSafeUrl(value, ["http:", "https:"]);
+    if (!safeUrl) {
+      link.hidden = true;
+      return;
+    }
+
+    link.href = safeUrl;
   });
 
   const targetRoles = $("#target-roles");
@@ -216,8 +241,12 @@ function renderCubes(filter = activeCubeFilter || t("allFilter")) {
   const cubes = filter === allLabel ? data.cubes : data.cubes.filter((cube) => cube.category === filter);
 
   $("#cubes-grid").innerHTML = cubes
-    .map(
-      (cube) => `
+    .map((cube) => {
+      const tools = cube.tools?.length ? cube.tools.slice(0, 4) : cube.technologies.slice(0, 4);
+      const references = cube.references?.length ? cube.references.slice(0, 3) : [];
+      const documentCount = cube.documents?.length || 0;
+
+      return `
         <article class="cube-card reveal" data-category="${escapeHtml(cube.category)}">
           <div class="card-topline">
             <span>${escapeHtml(cube.category)}</span>
@@ -229,16 +258,36 @@ function renderCubes(filter = activeCubeFilter || t("allFilter")) {
             <span>${escapeHtml(t("problemLabel"))}</span>
             <p>${escapeHtml(cube.problem)}</p>
           </div>
-          <div class="tag-row">${tagList(cube.technologies.slice(0, 4))}</div>
+          <div class="cube-proof-grid">
+            <div>
+              <span>${escapeHtml(t("toolsLabel"))}</span>
+              <div class="tag-row">${tagList(tools)}</div>
+            </div>
+            ${
+              references.length
+                ? `
+                  <div>
+                    <span>${escapeHtml(t("referencesLabel"))}</span>
+                    <div class="tag-row">${tagList(references)}</div>
+                  </div>
+                `
+                : ""
+            }
+            <div>
+              <span>${escapeHtml(t("cubeDocumentsTitle"))}</span>
+              <strong>${escapeHtml(documentCountLabel(documentCount))}</strong>
+            </div>
+          </div>
           <a class="text-button" href="cube.html?id=${encodeURIComponent(cube.id)}">
             ${escapeHtml(t("openCubePage"))}
           </a>
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 
   setupReveal();
+  setupInteractiveSurfaces($("#cubes-grid"));
 }
 
 function renderProjects() {
@@ -246,11 +295,11 @@ function renderProjects() {
     .map((project) => {
       const links = [
         project.github
-          ? `<a href="${escapeHtml(project.github)}" target="_blank" rel="noreferrer">GitHub</a>`
+          ? `<a href="${escapeHtml(getSafeUrl(project.github, ["http:", "https:"]))}" target="_blank" rel="noopener noreferrer">GitHub</a>`
           : "",
-        project.demo ? `<a href="${escapeHtml(project.demo)}" target="_blank" rel="noreferrer">${escapeHtml(t("demoLink"))}</a>` : ""
+        project.demo ? `<a href="${escapeHtml(getSafeUrl(project.demo, ["http:", "https:"]))}" target="_blank" rel="noopener noreferrer">${escapeHtml(t("demoLink"))}</a>` : ""
       ]
-        .filter(Boolean)
+        .filter((link) => !link.includes('href=""'))
         .join("");
 
       return `
@@ -269,31 +318,46 @@ function renderProjects() {
 
 function renderTimelineItems(items, { showDetails = false } = {}) {
   return items
-    .map(
-      (item) => `
+    .map((item) => {
+      const done = item.done || [];
+      const learned = item.learned || [];
+
+      return `
         <article class="timeline-item reveal">
           <time>${escapeHtml(item.period)}</time>
           <h3>${escapeHtml(item.title)}</h3>
           <p>${escapeHtml(item.description)}</p>
           ${
-            showDetails
+            showDetails && (done.length || learned.length)
               ? `
-                <div class="experience-details">
-                  <div>
-                    <strong>${escapeHtml(t("doneLabel"))}</strong>
-                    <ul>${listItems(item.done || [])}</ul>
-                  </div>
-                  <div>
-                    <strong>${escapeHtml(t("learnedLabel"))}</strong>
-                    <ul>${listItems(item.learned || [])}</ul>
-                  </div>
+                <div class="experience-details ${learned.length ? "" : "single"}">
+                  ${
+                    done.length
+                      ? `
+                        <div>
+                          <strong>${escapeHtml(t("doneLabel"))}</strong>
+                          <ul>${listItems(done)}</ul>
+                        </div>
+                      `
+                      : ""
+                  }
+                  ${
+                    learned.length
+                      ? `
+                        <div>
+                          <strong>${escapeHtml(t("learnedLabel"))}</strong>
+                          <ul>${listItems(learned)}</ul>
+                        </div>
+                      `
+                      : ""
+                  }
                 </div>
               `
               : ""
           }
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 }
 
@@ -346,6 +410,14 @@ function openCubeDialog(cubeId) {
         <div class="tag-row">${tagList(cube.technologies)}</div>
       </section>
       <section>
+        <h3>${escapeHtml(t("toolsLabel"))}</h3>
+        <div class="tag-row">${tagList(cube.tools || cube.technologies)}</div>
+      </section>
+      <section>
+        <h3>${escapeHtml(t("referencesLabel"))}</h3>
+        <div class="tag-row">${tagList(cube.references || [])}</div>
+      </section>
+      <section>
         <h3>${escapeHtml(t("deliverablesLabel"))}</h3>
         <ul>${listItems(cube.deliverables)}</ul>
       </section>
@@ -375,6 +447,7 @@ function renderPage({ resetFilter = false } = {}) {
   renderProjects();
   renderTimeline();
   setupReveal();
+  setupInteractiveSurfaces();
 }
 
 function setupInteractions() {
@@ -382,6 +455,7 @@ function setupInteractions() {
   const navToggle = $("[data-nav-toggle]");
   const navPanel = $("[data-nav-panel]");
   const backToTop = $("[data-back-to-top]");
+  const root = document.documentElement;
 
   const setMenuState = (isOpen) => {
     navPanel.classList.toggle("is-open", isOpen);
@@ -391,8 +465,12 @@ function setupInteractions() {
 
   const onScroll = () => {
     const scrolled = window.scrollY > 20;
+    const scrollable = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const progress = Math.min(1, Math.max(0, window.scrollY / scrollable));
+
     header.classList.toggle("is-scrolled", scrolled);
     backToTop.classList.toggle("is-visible", window.scrollY > 500);
+    root.style.setProperty("--scroll-progress", progress.toFixed(4));
   };
 
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -436,6 +514,75 @@ function setupInteractions() {
 
   backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" }));
 
+}
+
+function setupScrollSpy() {
+  const links = $$(".nav-panel a[href^='#']");
+  const sections = links
+    .map((link) => {
+      const section = $(link.getAttribute("href"));
+      return section ? { link, section } : null;
+    })
+    .filter(Boolean);
+
+  if (!sections.length || !("IntersectionObserver" in window)) return;
+
+  const setActive = (id) => {
+    links.forEach((link) => {
+      link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const activeEntry = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (activeEntry?.target?.id) {
+        setActive(activeEntry.target.id);
+      }
+    },
+    {
+      rootMargin: "-24% 0px -58% 0px",
+      threshold: [0.12, 0.24, 0.42, 0.6]
+    }
+  );
+
+  sections.forEach(({ section }) => observer.observe(section));
+}
+
+function setupInteractiveSurfaces(root = document) {
+  if (prefersReducedMotion) return;
+
+  const surfaces = [
+    ".search-card",
+    ".skill-card",
+    ".cube-card",
+    ".project-card",
+    ".trait-card",
+    ".recognition-card",
+    ".about-proof-panel > div"
+  ].join(",");
+
+  $$(surfaces, root).forEach((surface) => {
+    if (surface.dataset.surfaceReady) return;
+    surface.dataset.surfaceReady = "true";
+
+    surface.addEventListener("pointermove", (event) => {
+      const rect = surface.getBoundingClientRect();
+      const x = ((event.clientX - rect.left) / rect.width) * 100;
+      const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+      surface.style.setProperty("--mx", `${x.toFixed(1)}%`);
+      surface.style.setProperty("--my", `${y.toFixed(1)}%`);
+    });
+
+    surface.addEventListener("pointerleave", () => {
+      surface.style.removeProperty("--mx");
+      surface.style.removeProperty("--my");
+    });
+  });
 }
 
 function setupTheme() {
@@ -482,6 +629,28 @@ function setupLanguageToggle() {
   });
 }
 
+function setupHeroVisual() {
+  const card = $("[data-tilt-card]");
+  if (!card || prefersReducedMotion) return;
+
+  const resetTilt = () => {
+    card.style.setProperty("--tilt-x", "0deg");
+    card.style.setProperty("--tilt-y", "0deg");
+  };
+
+  card.addEventListener("pointermove", (event) => {
+    const rect = card.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+    card.style.setProperty("--tilt-x", `${(x * 5).toFixed(2)}deg`);
+    card.style.setProperty("--tilt-y", `${(-y * 5).toFixed(2)}deg`);
+  });
+
+  card.addEventListener("pointerleave", resetTilt);
+  card.addEventListener("blur", resetTilt, true);
+}
+
 function setupReveal() {
   const elements = $$(".reveal:not(.is-visible)");
 
@@ -489,6 +658,11 @@ function setupReveal() {
     elements.forEach((element) => element.classList.add("is-visible"));
     return;
   }
+
+  const isAlreadyInView = (element) => {
+    const rect = element.getBoundingClientRect();
+    return rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+  };
 
   const observer = new IntersectionObserver(
     (entries, currentObserver) => {
@@ -502,10 +676,19 @@ function setupReveal() {
     { threshold: 0.12 }
   );
 
-  elements.forEach((element) => observer.observe(element));
+  elements.forEach((element) => {
+    if (element.closest(".hero") || isAlreadyInView(element)) {
+      element.classList.add("is-visible");
+      return;
+    }
+
+    observer.observe(element);
+  });
 }
 
 setupTheme();
 setupInteractions();
 setupLanguageToggle();
+setupHeroVisual();
 renderPage();
+setupScrollSpy();

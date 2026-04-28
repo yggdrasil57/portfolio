@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Portfolio de Théo BORTOLOTTO, étudiant CESI en infrastructures et cybersécurité, à la recherche d'un poste d'administrateur systèmes et réseaux, consultant IT ou chef de projet IT junior."
+      content="Portfolio de Théo BORTOLOTTO : systèmes, réseaux, cybersécurité, gestion de projets."
     >
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self'; form-action 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
     <meta name="theme-color" content="#f7f8f7">
-    <title>Théo BORTOLOTTO | Portfolio IT</title>
+    <title>Théo BORTOLOTTO | Portfolio</title>
     <link rel="icon" href="assets/profile-placeholder.svg" type="image/svg+xml">
     <link rel="stylesheet" href="styles.css">
     <script src="data.js" defer></script>
@@ -40,7 +43,7 @@
         <div class="nav-panel" id="primary-navigation" data-nav-panel>
           <a href="#apropos" data-i18n="navAbout">A propos</a>
           <a href="#competences" data-i18n="navSkills">Compétences</a>
-          <a href="#profil-plus" data-i18n="navProfile">Profil</a>
+          <a href="#profil-plus" data-i18n="navProfile">Méthode</a>
           <a href="#cubes" data-i18n="navCubes">Cubes CESI</a>
           <a href="#projets" data-i18n="navProjects">Projets</a>
           <a href="#parcours" data-i18n="navTimeline">Parcours</a>
@@ -77,14 +80,10 @@
         <div class="hero-field" aria-hidden="true"></div>
         <div class="container hero-layout">
           <div class="hero-copy reveal">
-            <p class="eyebrow" data-profile="status">Etudiant CESI - Infrastructures & Cybersécurité</p>
             <h1 id="hero-title">
               <span data-profile="name">Théo BORTOLOTTO</span>
               <span data-profile="role">Administrateur Systèmes & Réseaux</span>
             </h1>
-            <p class="hero-lead" data-profile="tagline">
-              Profil IT polyvalent, orienté systèmes, réseaux, support utilisateurs et coordination de projets techniques.
-            </p>
             <div class="hero-actions" aria-label="Actions principales">
               <a class="btn btn-primary" href="#cubes" data-i18n="heroPrimary">Voir mes réalisations</a>
               <a class="btn btn-ghost" href="#contact" data-i18n="heroSecondary">Me contacter</a>
@@ -113,6 +112,96 @@
             </div>
             <dl class="hero-metrics" id="hero-metrics" aria-label="Chiffres clés du portfolio"></dl>
           </div>
+          <aside class="hero-visual reveal delay-1" aria-label="Synthèse visuelle du portfolio">
+            <div class="hero-visual-shell" data-tilt-card>
+              <div class="visual-workspace">
+                <div class="visual-window-bar">
+                  <span class="window-controls" aria-hidden="true">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </span>
+                  <span data-i18n="visualTitle">Points clés du CV</span>
+                  <strong data-i18n="visualBadge">Tech + pilotage</strong>
+                </div>
+
+                <div class="profile-snapshot">
+                  <section class="snapshot-hero" aria-label="Résumé du profil">
+                    <div>
+                      <span data-i18n="visualSnapshotLabel">Synthèse profil</span>
+                      <h2 data-i18n="visualSnapshotTitle">Infrastructure, support, sécurité</h2>
+                      <p data-i18n="visualSnapshotText">
+                        5 ans d'alternance avec une double lecture : intervenir techniquement et cadrer proprement les actions.
+                      </p>
+                    </div>
+                    <strong>2026</strong>
+                  </section>
+
+                  <div class="snapshot-metrics" aria-label="Chiffres clés">
+                    <div>
+                      <strong>5 ans</strong>
+                      <span data-i18n="visualMetricExperience">alternance IT</span>
+                    </div>
+                    <div>
+                      <strong>N1/N2</strong>
+                      <span data-i18n="visualMetricSupport">support utilisateurs</span>
+                    </div>
+                    <div>
+                      <strong>Oct. 2026</strong>
+                      <span data-i18n="visualMetricAvailability">disponible</span>
+                    </div>
+                  </div>
+
+                  <div class="snapshot-balance" aria-label="Equilibre technique et pilotage">
+                    <section class="balance-card balance-tech">
+                      <div class="balance-card-head">
+                        <span data-i18n="visualTechTitle">Socle technique</span>
+                        <strong data-i18n="visualTechBadge">Infra</strong>
+                      </div>
+                      <ul>
+                        <li data-i18n="visualTechOne">Systèmes, réseau, virtualisation</li>
+                        <li data-i18n="visualTechTwo">Cisco, Aruba, Microsoft 365</li>
+                        <li data-i18n="visualTechThree">Sécurisation SI, EBIOS RM, CISO Assistant</li>
+                      </ul>
+                    </section>
+
+                    <section class="balance-card balance-management">
+                      <div class="balance-card-head">
+                        <span data-i18n="visualManagementTitle">Pilotage & coordination</span>
+                        <strong data-i18n="visualManagementBadge">Projet</strong>
+                      </div>
+                      <ul>
+                        <li data-i18n="visualManagementOne">PMP, RACI, planning, suivi d'actions</li>
+                        <li data-i18n="visualManagementTwo">Migration cloud et conduite du changement</li>
+                        <li data-i18n="visualManagementThree">Documentation, formation, relation utilisateurs</li>
+                      </ul>
+                    </section>
+                  </div>
+
+                  <div class="snapshot-outcome">
+                    <div class="snapshot-target">
+                      <span data-i18n="visualTargetLabel">Objectif</span>
+                      <strong data-i18n="visualTargetText">Admin Systèmes & Réseaux / Consultant IT / Chef de projet junior</strong>
+                    </div>
+                    <div class="snapshot-badge">
+                      <img src="assets/badge-citoyen-responsable-dynamique.svg" alt="" aria-hidden="true">
+                      <div>
+                        <span data-i18n="badgeShortLabel">Badge CESI</span>
+                        <strong data-i18n="badgeTitle">Citoyen Responsable - Dynamique</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="visual-proof-row" aria-hidden="true">
+                    <span>Cisco</span>
+                    <span>PMP</span>
+                    <span>EBIOS RM</span>
+                    <span>CISO Assistant</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -120,7 +209,7 @@
         <div class="container split-layout">
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="aboutEyebrow">A propos</p>
-            <h2 id="about-title" data-i18n="aboutTitle">Un profil IT terrain, structuré et orienté utilisateurs.</h2>
+            <h2 id="about-title" data-i18n="aboutTitle">Terrain, support et infrastructure</h2>
           </div>
 
           <div class="about-content reveal">
@@ -128,13 +217,23 @@
             <div class="about-tags" id="about-tags" aria-label="Informations rapides" data-i18n-aria="profileQuickInfo"></div>
           </div>
 
-          <figure class="profile-panel reveal delay-1">
-            <img src="assets/profile-placeholder.svg" alt="Portrait professionnel illustré de Théo BORTOLOTTO" data-i18n-alt="profileAlt">
-            <figcaption>
-              <strong data-profile="name">Théo BORTOLOTTO</strong>
-              <span data-profile="location">France</span>
-            </figcaption>
-          </figure>
+          <aside class="about-proof-panel reveal delay-1" aria-label="Points forts du profil" data-i18n-aria="profileStrengthsAria">
+            <div>
+              <span>01</span>
+              <strong data-i18n="aboutProofSupportTitle">Support & exploitation</strong>
+              <p data-i18n="aboutProofSupportText">N1/N2, inventaire, suivi de parc, documentation et relation utilisateur.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <strong data-i18n="aboutProofNetworkTitle">Réseau & infrastructure</strong>
+              <p data-i18n="aboutProofNetworkText">Cisco, Aruba, supervision, schémas réseau, migrations et environnements industriels.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <strong data-i18n="aboutProofSecurityTitle">Projet & sécurité</strong>
+              <p data-i18n="aboutProofSecurityText">PMP, RACI, EBIOS RM, CISO Assistant, PCA/PRA et plans de remédiation.</p>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -142,9 +241,9 @@
         <div class="container">
           <div class="section-heading narrow reveal">
             <p class="eyebrow" data-i18n="skillsEyebrow">Compétences</p>
-            <h2 id="skills-title" data-i18n="skillsTitle">Des compétences centrées sur l'exploitation, le réseau et la sécurité.</h2>
+            <h2 id="skills-title" data-i18n="skillsTitle">Compétences utilisées en alternance et sur mes projets</h2>
             <p data-i18n="skillsText">
-              Une lecture rapide des domaines mobilisés en alternance, dans mes cubes CESI et dans mes projets personnels.
+              Un aperçu des outils et sujets que j'ai manipulés en entreprise, en cube CESI ou sur mon temps personnel.
             </p>
           </div>
           <div class="skills-grid" id="skills-grid"></div>
@@ -154,14 +253,27 @@
       <section class="section" id="profil-plus" aria-labelledby="profile-extra-title">
         <div class="container profile-extra-layout">
           <div class="section-heading reveal">
-            <p class="eyebrow" data-i18n="profileExtraEyebrow">Savoir-être & centres d'intérêt</p>
-            <h2 id="profile-extra-title" data-i18n="profileExtraTitle">Ce que mes loisirs et ma manière de travailler apportent à mon profil IT.</h2>
+            <p class="eyebrow" data-i18n="profileExtraEyebrow">Méthode & centres d'intérêt</p>
+            <h2 id="profile-extra-title" data-i18n="profileExtraTitle">Méthode de travail et curiosité technique</h2>
             <p data-i18n="profileExtraText">
-              J'ai gardé ici les éléments qui ont un vrai lien avec les postes que je vise : support, infrastructure, cybersécurité, conseil et gestion de projet.
+              Je garde ici uniquement les éléments qui ont un lien direct avec les postes que je vise : support, infrastructure, cybersécurité, conseil et gestion de projet.
             </p>
           </div>
 
-          <section class="profile-extra-block reveal delay-1" aria-labelledby="soft-skills-title">
+          <section class="profile-extra-block recognition-block reveal delay-1" aria-labelledby="badge-title">
+            <article class="recognition-card">
+              <img src="assets/badge-citoyen-responsable-dynamique.svg" alt="" aria-hidden="true">
+              <div>
+                <p class="eyebrow" data-i18n="badgeEyebrow">Badge CESI</p>
+                <h3 id="badge-title" data-i18n="badgeTitle">Citoyen Responsable - Dynamique</h3>
+                <p data-i18n="badgeText">
+                  Badge obtenu dans le cadre du Mastère CESI autour de la RSE, de l'éthique du manager et du rôle du futur manager dans l'entreprise.
+                </p>
+              </div>
+            </article>
+          </section>
+
+          <section class="profile-extra-block reveal delay-2" aria-labelledby="soft-skills-title">
             <h3 id="soft-skills-title" data-i18n="softSkillsTitle">Soft skills</h3>
             <div class="trait-grid" id="soft-skills-grid"></div>
           </section>
@@ -177,9 +289,9 @@
         <div class="container">
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="cubesEyebrow">Cubes CESI</p>
-            <h2 id="cubes-title" data-i18n="cubesTitle">Des projets présentés comme de vraies études de cas IT.</h2>
+            <h2 id="cubes-title" data-i18n="cubesTitle">Cubes CESI replacés dans leur contexte</h2>
             <p data-i18n="cubesText">
-              Chaque cube met en avant la problématique, la démarche, la solution produite, les livrables et les compétences développées.
+              Pour chaque cube : problème de départ, démarche, outils utilisés, référentiels, livrables et PDF intégrés.
             </p>
           </div>
 
@@ -206,9 +318,9 @@
         <div class="container">
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="projectsEyebrow">Projets personnels</p>
-            <h2 id="projects-title" data-i18n="projectsTitle">Des réalisations complémentaires, orientées pratique et progression.</h2>
+            <h2 id="projects-title" data-i18n="projectsTitle">Travaux personnels et pratique technique</h2>
             <p data-i18n="projectsText">
-              Une sélection de travaux personnels et de démarches techniques qui prolongent mon parcours en infrastructure IT.
+              Des sujets plus petits, utiles pour continuer à pratiquer et garder une trace de ce que j'apprends.
             </p>
           </div>
           <div class="projects-grid" id="projects-grid"></div>
@@ -219,7 +331,7 @@
         <div class="container">
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="timelineEyebrow">Parcours</p>
-            <h2 id="timeline-title" data-i18n="timelineTitle">Diplômes, master en cours et expériences pro, dans l'ordre.</h2>
+            <h2 id="timeline-title" data-i18n="timelineTitle">Diplômes, master en cours et expériences pro</h2>
           </div>
 
           <div class="path-layout">
@@ -245,7 +357,7 @@
         <div class="container contact-layout">
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
-            <h2 id="contact-title" data-i18n="contactTitle">Disponible pour échanger sur une opportunité IT.</h2>
+            <h2 id="contact-title" data-i18n="contactTitle">Mes contacts</h2>
             <p data-i18n="contactText">
               Je recherche un poste d'Administrateur Systèmes et Réseaux, Consultant IT ou Chef de projet IT Junior à partir d'octobre 2026.
             </p>
@@ -257,12 +369,8 @@
               <a href="mailto:theo.bortolotto@yahoo.com" data-profile-link="email">theo.bortolotto@yahoo.com</a>
             </div>
             <div class="contact-method">
-              <span>Téléphone</span>
-              <a href="tel:+33615662401" data-profile-link="phone">06 15 66 24 01</a>
-            </div>
-            <div class="contact-method">
               <span>LinkedIn</span>
-              <a href="https://www.linkedin.com/in/t-bortolotto" target="_blank" rel="noreferrer" data-profile-link="linkedin">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/t-bortolotto" target="_blank" rel="noopener noreferrer" data-profile-link="linkedin">LinkedIn</a>
             </div>
           </div>
         </div>
@@ -271,7 +379,7 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>© <span data-current-year></span> <span data-profile="name">Théo BORTOLOTTO</span>. <span data-i18n="footerSuffix">Portfolio étudiant CESI.</span></p>
+        <p>© <span data-current-year></span> <span data-profile="name">Théo BORTOLOTTO</span>. <span data-i18n="footerSuffix">Portfolio</span></p>
         <a href="#accueil">Retour à l'accueil</a>
       </div>
     </footer>
