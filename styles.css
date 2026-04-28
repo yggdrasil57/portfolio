@@ -3171,10 +3171,6 @@ h3 {
     gap: 6px;
   }
 
-  .nav-actions [data-theme-toggle] {
-    display: none;
-  }
-
   .role-list {
     display: grid;
     grid-template-columns: 1fr;
@@ -3276,10 +3272,6 @@ h3 {
 
   .nav-actions {
     gap: 6px;
-  }
-
-  .nav-actions [data-theme-toggle] {
-    display: none;
   }
 
   .language-toggle {
