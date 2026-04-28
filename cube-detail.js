@@ -46,6 +46,17 @@ function getDocumentUrl(documentItem) {
   }
 }
 
+function getDownloadName(documentItem) {
+  const pathName = documentItem?.path?.split("/").pop();
+  return pathName || `${documentItem?.label || "document"}.pdf`;
+}
+
+function shouldUseInlinePdfViewer() {
+  const smallViewport = window.matchMedia("(max-width: 760px)").matches;
+  const touchDevice = window.matchMedia("(pointer: coarse)").matches;
+  return !(smallViewport || touchDevice);
+}
+
 function getCube() {
   const params = new URLSearchParams(window.location.search);
   const cubeId = params.get("id");
@@ -159,9 +170,31 @@ function renderDocumentEmbed(selectedDocument) {
     `;
   }
 
+  const fileName = getDownloadName(selectedDocument);
+  const documentActions = `
+    <div class="document-file-actions">
+      <a class="btn btn-primary btn-small" href="${escapeHtml(documentUrl)}" target="_blank" rel="noopener noreferrer">
+        ${escapeHtml(t("openPdfExternal"))}
+      </a>
+      <a class="btn btn-secondary btn-small" href="${escapeHtml(documentUrl)}" download="${escapeHtml(fileName)}">
+        ${escapeHtml(t("downloadPdf"))}
+      </a>
+    </div>
+  `;
+
   if (selectedDocument.viewer === "pdf" || selectedDocument.type === "PDF") {
+    if (!shouldUseInlinePdfViewer()) {
+      return `
+        <div class="document-open-panel">
+          <p>${escapeHtml(t("mobilePdfNotice"))}</p>
+          ${documentActions}
+        </div>
+      `;
+    }
+
     return `
       <div class="document-frame-wrap">
+        ${documentActions}
         <iframe
           class="document-frame"
           title="${escapeHtml(selectedDocument.label)}"
@@ -176,6 +209,7 @@ function renderDocumentEmbed(selectedDocument) {
   return `
     <div class="viewer-empty viewer-empty-compact">
       <p>${escapeHtml(t("noEmbeddedViewer"))}</p>
+      ${documentActions}
     </div>
   `;
 }
@@ -258,11 +292,23 @@ function selectDocument(cube, index) {
   updateDocumentButtons();
 }
 
+function scrollDocumentViewerIntoView(behavior = "smooth") {
+  $("#document-viewer").scrollIntoView({
+    behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : behavior,
+    block: "start"
+  });
+}
+
 function setupDocumentSelection(cube) {
   const selectFromEvent = (event) => {
     const button = event.target.closest("[data-document-index]");
     if (!button) return;
+
     selectDocument(cube, Number(button.dataset.documentIndex));
+
+    if (button.closest("#cube-document-actions")) {
+      scrollDocumentViewerIntoView();
+    }
   };
 
   $("#cube-document-actions").onclick = selectFromEvent;
@@ -284,6 +330,10 @@ function renderCubeDetail() {
   renderDocumentList(cube);
   setupDocumentSelection(cube);
   updateDocumentButtons();
+
+  if (window.location.hash === "#document-viewer") {
+    window.setTimeout(() => scrollDocumentViewerIntoView("auto"), 80);
+  }
 }
 
 function setupTheme() {

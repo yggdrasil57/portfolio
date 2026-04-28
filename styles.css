@@ -2537,18 +2537,63 @@ h3 {
 }
 
 .document-frame-wrap {
+  display: grid;
+  gap: 12px;
   min-height: min(74vh, 760px);
+  padding: 14px;
   border-bottom: 1px solid var(--line);
   background:
     linear-gradient(135deg, var(--surface-strong), color-mix(in srgb, var(--surface) 84%, var(--blue-soft))),
     var(--surface-strong);
 }
 
+.document-file-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 .document-frame {
   display: block;
   width: 100%;
   min-height: min(74vh, 760px);
-  border: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-soft);
+}
+
+.document-open-panel {
+  display: grid;
+  gap: 18px;
+  min-height: 220px;
+  align-content: center;
+  padding: clamp(22px, 5vw, 42px);
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-soft) 74%, transparent), transparent 68%),
+    var(--surface-strong);
+}
+
+.document-open-panel p {
+  max-width: 620px;
+  margin: 0;
+  color: var(--muted-strong);
+  font-size: 1rem;
+}
+
+.document-open-panel .document-file-actions {
+  justify-content: flex-start;
+}
+
+.document-open-panel .btn,
+.document-file-actions .btn {
+  text-align: center;
+}
+
+.document-frame {
   background: #ffffff;
 }
 
@@ -3111,6 +3156,17 @@ h3 {
     overflow-wrap: anywhere;
   }
 
+  .cube-detail-hero h1 {
+    max-width: 100%;
+    font-size: clamp(1.9rem, 7.8vw, 2.4rem);
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .cube-detail-hero .hero-lead {
+    overflow-wrap: anywhere;
+  }
+
   .nav-actions {
     gap: 6px;
   }
@@ -3165,6 +3221,18 @@ h3 {
   .document-frame,
   .document-frame-wrap {
     min-height: 520px;
+  }
+
+  .document-file-actions {
+    justify-content: stretch;
+  }
+
+  .document-file-actions .btn {
+    flex: 1 1 180px;
+  }
+
+  .document-open-panel {
+    min-height: 220px;
   }
 
   .internal-viewer-header {

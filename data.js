@@ -825,6 +825,10 @@ window.portfolioUi = {
     openDocument: "Visualiser",
     noEmbeddedViewer:
       "La visualisation complète dépend du navigateur. La synthèse ci-dessous reprend les points importants du document.",
+    mobilePdfNotice:
+      "Sur téléphone, la lecture intégrée des PDF dépend du navigateur. Ouvre le fichier directement pour le lire dans le lecteur PDF du téléphone.",
+    openPdfExternal: "Ouvrir le PDF",
+    downloadPdf: "Télécharger",
     viewerSelectedLabel: "Document sélectionné",
     viewerPageLabel: "Section",
     documentSummaryLabel: "Synthèse du fichier",
@@ -951,6 +955,10 @@ window.portfolioUi = {
     openDocument: "View",
     noEmbeddedViewer:
       "Full viewing depends on the browser. The summary below highlights the important points of the document.",
+    mobilePdfNotice:
+      "On phones, embedded PDF viewing depends on the browser. Open the file directly to read it in the phone's PDF viewer.",
+    openPdfExternal: "Open PDF",
+    downloadPdf: "Download",
     viewerSelectedLabel: "Selected document",
     viewerPageLabel: "Section",
     documentSummaryLabel: "File summary",
