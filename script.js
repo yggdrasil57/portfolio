@@ -525,7 +525,7 @@ function setupScrollSpy() {
     })
     .filter(Boolean);
 
-  if (!sections.length || !("IntersectionObserver" in window)) return;
+  if (!sections.length) return;
 
   const setActive = (id) => {
     links.forEach((link) => {
@@ -533,23 +533,36 @@ function setupScrollSpy() {
     });
   };
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const activeEntry = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  const updateActiveLink = () => {
+    const headerOffset = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-height")) || 72;
+    const marker = window.scrollY + headerOffset + window.innerHeight * 0.28;
+    const pageBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8;
+    const activeSection = pageBottom
+      ? sections[sections.length - 1]
+      : sections
+          .slice()
+          .reverse()
+          .find(({ section }) => marker >= section.offsetTop);
 
-      if (activeEntry?.target?.id) {
-        setActive(activeEntry.target.id);
-      }
-    },
-    {
-      rootMargin: "-24% 0px -58% 0px",
-      threshold: [0.12, 0.24, 0.42, 0.6]
+    if (activeSection?.section?.id) {
+      setActive(activeSection.section.id);
     }
-  );
+  };
 
-  sections.forEach(({ section }) => observer.observe(section));
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      const id = link.getAttribute("href").slice(1);
+      if (id) setActive(id);
+      window.setTimeout(updateActiveLink, 80);
+    });
+  });
+
+  window.addEventListener("scroll", updateActiveLink, { passive: true });
+  window.addEventListener("resize", updateActiveLink);
+  window.addEventListener("hashchange", updateActiveLink);
+  window.addEventListener("load", updateActiveLink);
+  updateActiveLink();
+  window.setTimeout(updateActiveLink, 160);
 }
 
 function setupInteractiveSurfaces(root = document) {
