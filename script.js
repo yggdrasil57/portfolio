@@ -10,6 +10,8 @@ const storedLocale = localStorage.getItem("portfolio-language");
 let currentLocale = localeData[storedLocale] ? storedLocale : "fr";
 let data = localeData[currentLocale] || localeData.fr;
 let activeCubeFilter = null;
+let currentPageId = "accueil";
+let pageNavigationReady = false;
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
@@ -52,6 +54,151 @@ function documentCountLabel(count) {
     return `${count} fichier${count > 1 ? "s" : ""}`;
   }
   return `${count} file${count > 1 ? "s" : ""}`;
+}
+
+function getPageSections() {
+  return $$(".page-section[data-page]");
+}
+
+function getPageIds() {
+  return [...new Set(getPageSections().map((section) => section.dataset.page).filter(Boolean))];
+}
+
+function getHashId(hash = window.location.hash) {
+  if (!hash || hash === "#") return "";
+
+  try {
+    return decodeURIComponent(hash.replace(/^#/, ""));
+  } catch {
+    return hash.replace(/^#/, "");
+  }
+}
+
+function getRouteFromHash(hash = window.location.hash) {
+  const hashId = getHashId(hash);
+  const pageIds = getPageIds();
+
+  if (!hashId) {
+    return { pageId: "accueil", targetId: "accueil" };
+  }
+
+  const target = document.getElementById(hashId);
+  const targetPage = target?.closest?.(".page-section[data-page]")?.dataset.page;
+  if (targetPage) {
+    return { pageId: targetPage, targetId: hashId };
+  }
+
+  if (pageIds.includes(hashId)) {
+    return { pageId: hashId, targetId: hashId };
+  }
+
+  return null;
+}
+
+function getCurrentRoute() {
+  return getRouteFromHash(window.location.hash) || { pageId: "accueil", targetId: "accueil" };
+}
+
+function getPageLabel(pageId) {
+  const link = $$(".nav-panel a[href^='#']").find((navLink) => getRouteFromHash(navLink.getAttribute("href"))?.pageId === pageId);
+  return link?.textContent.trim() || "";
+}
+
+function updatePageTitle(pageId) {
+  if (pageId === "accueil") {
+    document.title = t("pageTitle");
+    return;
+  }
+
+  const label = getPageLabel(pageId);
+  document.title = label ? `${label} | ${data.profile.name}` : t("pageTitle");
+}
+
+function updatePageLinks(pageId) {
+  const links = $$(".brand[href^='#'], .nav-panel a[href^='#'], .route-card[href^='#'], .footer-inner a[href^='#']");
+
+  links.forEach((link) => {
+    const route = getRouteFromHash(link.getAttribute("href"));
+    const isActive = route?.pageId === pageId && route.targetId !== "navigation-portfolio";
+
+    link.classList.toggle("is-active", Boolean(isActive));
+
+    if (isActive) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
+function scrollToPageTarget(pageId, targetId, { smooth = true } = {}) {
+  const target = document.getElementById(targetId);
+  const targetPage = target?.closest?.(".page-section[data-page]")?.dataset.page;
+  const fallback = getPageSections().find((section) => section.dataset.page === pageId);
+  const scrollTarget = targetPage === pageId ? target : fallback;
+  const headerOffset = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-height")) || 72;
+  const top = scrollTarget ? scrollTarget.getBoundingClientRect().top + window.scrollY : 0;
+  const offset = scrollTarget?.id === "accueil" ? 0 : headerOffset + 12;
+  const destination = scrollTarget?.id === "accueil" ? 0 : Math.max(0, top - offset);
+  const behavior = smooth && !prefersReducedMotion ? "smooth" : "auto";
+
+  if (scrollTarget?.id === "navigation-portfolio") {
+    scrollTarget.scrollIntoView({ behavior, block: "start" });
+    window.setTimeout(
+      () => window.scrollBy({ top: -offset, behavior: "auto" }),
+      behavior === "smooth" ? 420 : 0
+    );
+    return;
+  }
+
+  window.scrollTo({
+    top: destination,
+    behavior
+  });
+}
+
+function activatePage(pageId = "accueil", { targetId = pageId, scroll = true, updateHash = false, smoothScroll = true } = {}) {
+  const pageSections = getPageSections();
+  const pageIds = getPageIds();
+  const nextPageId = pageIds.includes(pageId) ? pageId : "accueil";
+  const nextTargetId = targetId || nextPageId;
+
+  currentPageId = nextPageId;
+  document.documentElement.classList.add("has-page-routing");
+  document.body.dataset.activePage = nextPageId;
+
+  pageSections.forEach((section) => {
+    const isActive = section.dataset.page === nextPageId;
+    section.hidden = !isActive;
+    section.classList.toggle("is-active-page", isActive);
+    section.setAttribute("aria-hidden", String(!isActive));
+  });
+
+  updatePageLinks(nextPageId);
+  updatePageTitle(nextPageId);
+
+  if (updateHash) {
+    const nextHash = `#${nextTargetId}`;
+    if (window.location.hash !== nextHash) {
+      window.history.pushState(null, "", nextHash);
+    }
+  }
+
+  window.requestAnimationFrame(() => {
+    if (scroll) {
+      scrollToPageTarget(nextPageId, nextTargetId, { smooth: smoothScroll });
+      window.requestAnimationFrame(setupReveal);
+      window.setTimeout(setupReveal, smoothScroll ? 520 : 80);
+      return;
+    }
+
+    setupReveal();
+  });
+}
+
+function syncPageWithLocation({ scroll = false, smoothScroll = false } = {}) {
+  const route = getCurrentRoute();
+  activatePage(route.pageId, { targetId: route.targetId, scroll, smoothScroll });
 }
 
 function setStaticContent() {
@@ -301,15 +448,14 @@ function renderProjects() {
       ]
         .filter((link) => !link.includes('href=""'))
         .join("");
+      const projectLinks = `<div class="project-links">${links || `<span>${escapeHtml(t("documentationOnRequest"))}</span>`}</div>`;
 
       return `
         <article class="project-card reveal">
           <h3>${escapeHtml(project.title)}</h3>
           <p>${escapeHtml(project.description)}</p>
           <div class="tag-row">${tagList(project.technologies)}</div>
-          <div class="project-links">
-            ${links || `<span>${escapeHtml(t("documentationOnRequest"))}</span>`}
-          </div>
+          ${projectLinks}
         </article>
       `;
     })
@@ -448,6 +594,10 @@ function renderPage({ resetFilter = false } = {}) {
   renderTimeline();
   setupReveal();
   setupInteractiveSurfaces();
+
+  if (pageNavigationReady) {
+    syncPageWithLocation({ scroll: false });
+  }
 }
 
 function setupInteractions() {
@@ -516,53 +666,39 @@ function setupInteractions() {
 
 }
 
-function setupScrollSpy() {
-  const links = $$(".nav-panel a[href^='#']");
-  const sections = links
-    .map((link) => {
-      const section = $(link.getAttribute("href"));
-      return section ? { link, section } : null;
-    })
-    .filter(Boolean);
+function setupPageNavigation() {
+  const pageIds = getPageIds();
+  if (!pageIds.length) return;
 
-  if (!sections.length) return;
+  pageNavigationReady = true;
+  syncPageWithLocation({ scroll: Boolean(getRouteFromHash(window.location.hash)) });
 
-  const setActive = (id) => {
-    links.forEach((link) => {
-      link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
-    });
-  };
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest("a[href^='#']");
+    if (!link || link.hasAttribute("download") || link.target) return;
 
-  const updateActiveLink = () => {
-    const headerOffset = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--header-height")) || 72;
-    const marker = window.scrollY + headerOffset + window.innerHeight * 0.28;
-    const pageBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8;
-    const activeSection = pageBottom
-      ? sections[sections.length - 1]
-      : sections
-          .slice()
-          .reverse()
-          .find(({ section }) => marker >= section.offsetTop);
+    const route = getRouteFromHash(link.getAttribute("href"));
+    if (!route || !pageIds.includes(route.pageId)) return;
 
-    if (activeSection?.section?.id) {
-      setActive(activeSection.section.id);
+    event.preventDefault();
+
+    const navPanel = $("[data-nav-panel]");
+    const navToggle = $("[data-nav-toggle]");
+    if (navPanel && navToggle) {
+      navPanel.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", t("openMenu"));
     }
-  };
 
-  links.forEach((link) => {
-    link.addEventListener("click", () => {
-      const id = link.getAttribute("href").slice(1);
-      if (id) setActive(id);
-      window.setTimeout(updateActiveLink, 80);
+    activatePage(route.pageId, {
+      targetId: route.targetId,
+      scroll: true,
+      updateHash: true
     });
   });
 
-  window.addEventListener("scroll", updateActiveLink, { passive: true });
-  window.addEventListener("resize", updateActiveLink);
-  window.addEventListener("hashchange", updateActiveLink);
-  window.addEventListener("load", updateActiveLink);
-  updateActiveLink();
-  window.setTimeout(updateActiveLink, 160);
+  window.addEventListener("hashchange", () => syncPageWithLocation({ scroll: true }));
+  window.addEventListener("popstate", () => syncPageWithLocation({ scroll: true }));
 }
 
 function setupInteractiveSurfaces(root = document) {
@@ -573,6 +709,7 @@ function setupInteractiveSurfaces(root = document) {
     ".skill-card",
     ".cube-card",
     ".project-card",
+    ".route-card",
     ".trait-card",
     ".recognition-card",
     ".about-proof-panel > div"
@@ -600,22 +737,36 @@ function setupInteractiveSurfaces(root = document) {
 
 function setupTheme() {
   const button = $("[data-theme-toggle]");
+  if (!button) return;
+
   const storedTheme = localStorage.getItem("portfolio-theme");
   const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   const initialTheme = storedTheme || systemTheme;
+  const themeColor = $('meta[name="theme-color"]');
 
   const applyTheme = (theme) => {
     document.documentElement.dataset.theme = theme;
+    themeColor?.setAttribute("content", theme === "dark" ? "#121417" : "#f7f8f7");
     updateThemeButtonLabel();
+  };
+
+  const toggleTheme = () => {
+    const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    localStorage.setItem("portfolio-theme", nextTheme);
+    applyTheme(nextTheme);
   };
 
   applyTheme(initialTheme);
 
-  button.addEventListener("click", () => {
-    const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-    localStorage.setItem("portfolio-theme", nextTheme);
-    applyTheme(nextTheme);
-  });
+  button.addEventListener("click", toggleTheme);
+  button.addEventListener(
+    "touchend",
+    (event) => {
+      event.preventDefault();
+      toggleTheme();
+    },
+    { passive: false }
+  );
 }
 
 function setupLanguageToggle() {
@@ -704,4 +855,4 @@ setupInteractions();
 setupLanguageToggle();
 setupHeroVisual();
 renderPage();
-setupScrollSpy();
+setupPageNavigation();

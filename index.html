@@ -58,6 +58,7 @@
         </button>
 
         <div class="nav-panel" id="primary-navigation" data-nav-panel>
+          <a href="#accueil" data-i18n="navHome">Synthèse</a>
           <a href="#apropos" data-i18n="navAbout">A propos</a>
           <a href="#competences" data-i18n="navSkills">Compétences</a>
           <a href="#profil-plus" data-i18n="navProfile">Méthode</a>
@@ -93,7 +94,7 @@
     </header>
 
     <main id="main">
-      <section class="hero" id="accueil" aria-labelledby="hero-title">
+      <section class="hero page-section page-section-home" id="accueil" data-page="accueil" aria-labelledby="hero-title">
         <div class="hero-field" aria-hidden="true"></div>
         <div class="container hero-layout">
           <div class="hero-copy reveal">
@@ -102,7 +103,7 @@
               <span data-profile="role">Administrateur Systèmes & Réseaux</span>
             </h1>
             <div class="hero-actions" aria-label="Actions principales">
-              <a class="btn btn-primary" href="#cubes" data-i18n="heroPrimary">Voir mes réalisations</a>
+              <a class="btn btn-primary" href="#navigation-portfolio" data-i18n="heroPrimary">Explorer les catégories</a>
               <a class="btn btn-ghost" href="#contact" data-i18n="heroSecondary">Me contacter</a>
             </div>
             <div class="search-card" aria-label="Recherche professionnelle">
@@ -139,7 +140,7 @@
                     <i></i>
                   </span>
                   <span data-i18n="visualTitle">Points clés du CV</span>
-                  <strong data-i18n="visualBadge">Tech + pilotage</strong>
+                  <strong data-i18n="visualBadge">Technique + pilotage</strong>
                 </div>
 
                 <div class="profile-snapshot">
@@ -222,7 +223,90 @@
         </div>
       </section>
 
-      <section class="section" id="apropos" aria-labelledby="about-title">
+      <section class="section portal-section page-section page-section-home" id="navigation-portfolio" data-page="accueil" aria-label="Catégories du portfolio" data-i18n-aria="portalAria">
+        <div class="container portal-layout">
+          <div class="route-grid" aria-label="Catégories du portfolio" data-i18n-aria="portalAria">
+            <a class="route-card reveal delay-1" href="#apropos" data-route-tone="accent">
+              <span class="route-index">01</span>
+              <span class="route-glyph route-glyph-about" aria-hidden="true"></span>
+              <span class="route-body">
+                <strong data-i18n="portalAboutTitle">Synthèse profil</strong>
+                <span data-i18n="portalAboutText">Parcours, objectif, positionnement et informations rapides.</span>
+                <em data-i18n="portalAboutMeta">Profil</em>
+              </span>
+              <span class="route-arrow" aria-hidden="true"></span>
+            </a>
+
+            <a class="route-card reveal delay-1" href="#competences" data-route-tone="blue">
+              <span class="route-index">02</span>
+              <span class="route-glyph route-glyph-skills" aria-hidden="true"></span>
+              <span class="route-body">
+                <strong data-i18n="portalSkillsTitle">Socle technique</strong>
+                <span data-i18n="portalSkillsText">Systèmes, réseau, support, projet et cybersécurité.</span>
+                <em data-i18n="portalSkillsMeta">Compétences</em>
+              </span>
+              <span class="route-arrow" aria-hidden="true"></span>
+            </a>
+
+            <a class="route-card reveal delay-2" href="#profil-plus" data-route-tone="gold">
+              <span class="route-index">03</span>
+              <span class="route-glyph route-glyph-method" aria-hidden="true"></span>
+              <span class="route-body">
+                <strong data-i18n="portalMethodTitle">Méthode</strong>
+                <span data-i18n="portalMethodText">Soft skills, veille et manière de travailler.</span>
+                <em data-i18n="portalMethodMeta">Approche</em>
+              </span>
+              <span class="route-arrow" aria-hidden="true"></span>
+            </a>
+
+            <a class="route-card reveal delay-2" href="#cubes" data-route-tone="coral">
+              <span class="route-index">04</span>
+              <span class="route-glyph route-glyph-cubes" aria-hidden="true"></span>
+              <span class="route-body">
+                <strong data-i18n="portalCubesTitle">Cubes CESI</strong>
+                <span data-i18n="portalCubesText">Études de cas avec problématique, outils, livrables et PDF.</span>
+                <em data-i18n="portalCubesMeta">Réalisations</em>
+              </span>
+              <span class="route-arrow" aria-hidden="true"></span>
+            </a>
+
+            <a class="route-card reveal delay-3" href="#projets" data-route-tone="accent">
+              <span class="route-index">05</span>
+              <span class="route-glyph route-glyph-projects" aria-hidden="true"></span>
+              <span class="route-body">
+                <strong data-i18n="portalProjectsTitle">Projets personnels</strong>
+                <span data-i18n="portalProjectsText">Pratique technique et traces d'apprentissage.</span>
+                <em data-i18n="portalProjectsMeta">Labs</em>
+              </span>
+              <span class="route-arrow" aria-hidden="true"></span>
+            </a>
+
+            <a class="route-card reveal delay-3" href="#parcours" data-route-tone="blue">
+              <span class="route-index">06</span>
+              <span class="route-glyph route-glyph-path" aria-hidden="true"></span>
+              <span class="route-body">
+                <strong data-i18n="portalPathTitle">Parcours</strong>
+                <span data-i18n="portalPathText">Diplômes, master en cours et expériences en alternance.</span>
+                <em data-i18n="portalPathMeta">Expérience</em>
+              </span>
+              <span class="route-arrow" aria-hidden="true"></span>
+            </a>
+
+            <a class="route-card route-card-contact reveal delay-3" href="#contact" data-route-tone="gold">
+              <span class="route-index">07</span>
+              <span class="route-glyph route-glyph-contact" aria-hidden="true"></span>
+              <span class="route-body">
+                <strong data-i18n="portalContactTitle">Contact</strong>
+                <span data-i18n="portalContactText">Email, LinkedIn, disponibilité et mobilité.</span>
+                <em data-i18n="portalContactMeta">Échange</em>
+              </span>
+              <span class="route-arrow" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section content-page page-section" id="apropos" data-page="apropos" aria-labelledby="about-title">
         <div class="container split-layout">
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="aboutEyebrow">A propos</p>
@@ -254,7 +338,7 @@
         </div>
       </section>
 
-      <section class="section section-muted" id="competences" aria-labelledby="skills-title">
+      <section class="section section-muted content-page page-section" id="competences" data-page="competences" aria-labelledby="skills-title">
         <div class="container">
           <div class="section-heading narrow reveal">
             <p class="eyebrow" data-i18n="skillsEyebrow">Compétences</p>
@@ -267,7 +351,7 @@
         </div>
       </section>
 
-      <section class="section" id="profil-plus" aria-labelledby="profile-extra-title">
+      <section class="section content-page page-section" id="profil-plus" data-page="profil-plus" aria-labelledby="profile-extra-title">
         <div class="container profile-extra-layout">
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="profileExtraEyebrow">Méthode & centres d'intérêt</p>
@@ -302,7 +386,7 @@
         </div>
       </section>
 
-      <section class="section" id="cubes" aria-labelledby="cubes-title">
+      <section class="section content-page page-section" id="cubes" data-page="cubes" aria-labelledby="cubes-title">
         <div class="container">
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="cubesEyebrow">Cubes CESI</p>
@@ -331,7 +415,7 @@
         </div>
       </section>
 
-      <section class="section section-muted" id="projets" aria-labelledby="projects-title">
+      <section class="section section-muted content-page page-section" id="projets" data-page="projets" aria-labelledby="projects-title">
         <div class="container">
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="projectsEyebrow">Projets personnels</p>
@@ -344,7 +428,7 @@
         </div>
       </section>
 
-      <section class="section" id="parcours" aria-labelledby="timeline-title">
+      <section class="section content-page page-section" id="parcours" data-page="parcours" aria-labelledby="timeline-title">
         <div class="container">
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="timelineEyebrow">Parcours</p>
@@ -370,7 +454,7 @@
         </div>
       </section>
 
-      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+      <section class="section contact-section content-page page-section" id="contact" data-page="contact" aria-labelledby="contact-title">
         <div class="container contact-layout">
           <div class="section-heading reveal">
             <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
