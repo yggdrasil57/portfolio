@@ -60,12 +60,14 @@
         <div class="nav-panel" id="primary-navigation" data-nav-panel>
           <a href="#accueil" data-i18n="navHome">Synthèse</a>
           <a href="#apropos" data-i18n="navAbout">A propos</a>
+          <a href="#apports" data-i18n="navContributions">Apports</a>
           <a href="#competences" data-i18n="navSkills">Compétences</a>
           <a href="#profil-plus" data-i18n="navProfile">Méthode</a>
           <a href="#cubes" data-i18n="navCubes">Cubes CESI</a>
           <a href="#projets" data-i18n="navProjects">Projets</a>
           <a href="#parcours" data-i18n="navTimeline">Parcours</a>
           <a href="#contact" data-i18n="navContact">Contact</a>
+          <a href="mentions-legales.html" data-i18n="legalLink">Mentions légales</a>
         </div>
 
         <div class="nav-actions">
@@ -99,7 +101,10 @@
         <div class="container hero-layout">
           <div class="hero-copy reveal">
             <h1 id="hero-title">
-              <span data-profile="name">Théo BORTOLOTTO</span>
+              <span class="hero-name">
+                <span class="hero-first-name" data-profile="firstName">Théo</span>
+                <span class="hero-last-name" data-profile="lastName">BORTOLOTTO</span>
+              </span>
               <span data-profile="role">Administrateur Systèmes & Réseaux</span>
             </h1>
             <div class="hero-actions" aria-label="Actions principales">
@@ -237,8 +242,19 @@
               <span class="route-arrow" aria-hidden="true"></span>
             </a>
 
-            <a class="route-card reveal delay-1" href="#competences" data-route-tone="blue">
+            <a class="route-card reveal delay-1" href="#apports" data-route-tone="coral">
               <span class="route-index">02</span>
+              <span class="route-glyph route-glyph-contribution" aria-hidden="true"></span>
+              <span class="route-body">
+                <strong data-i18n="portalContributionsTitle">Ce que je peux apporter</strong>
+                <span data-i18n="portalContributionsText">Impact concret pour le support, l'infrastructure, la sécurité et le projet.</span>
+                <em data-i18n="portalContributionsMeta">Valeur</em>
+              </span>
+              <span class="route-arrow" aria-hidden="true"></span>
+            </a>
+
+            <a class="route-card reveal delay-1" href="#competences" data-route-tone="blue">
+              <span class="route-index">03</span>
               <span class="route-glyph route-glyph-skills" aria-hidden="true"></span>
               <span class="route-body">
                 <strong data-i18n="portalSkillsTitle">Socle technique</strong>
@@ -249,7 +265,7 @@
             </a>
 
             <a class="route-card reveal delay-2" href="#profil-plus" data-route-tone="gold">
-              <span class="route-index">03</span>
+              <span class="route-index">04</span>
               <span class="route-glyph route-glyph-method" aria-hidden="true"></span>
               <span class="route-body">
                 <strong data-i18n="portalMethodTitle">Méthode</strong>
@@ -260,7 +276,7 @@
             </a>
 
             <a class="route-card reveal delay-2" href="#cubes" data-route-tone="coral">
-              <span class="route-index">04</span>
+              <span class="route-index">05</span>
               <span class="route-glyph route-glyph-cubes" aria-hidden="true"></span>
               <span class="route-body">
                 <strong data-i18n="portalCubesTitle">Cubes CESI</strong>
@@ -271,7 +287,7 @@
             </a>
 
             <a class="route-card reveal delay-3" href="#projets" data-route-tone="accent">
-              <span class="route-index">05</span>
+              <span class="route-index">06</span>
               <span class="route-glyph route-glyph-projects" aria-hidden="true"></span>
               <span class="route-body">
                 <strong data-i18n="portalProjectsTitle">Projets personnels</strong>
@@ -282,7 +298,7 @@
             </a>
 
             <a class="route-card reveal delay-3" href="#parcours" data-route-tone="blue">
-              <span class="route-index">06</span>
+              <span class="route-index">07</span>
               <span class="route-glyph route-glyph-path" aria-hidden="true"></span>
               <span class="route-body">
                 <strong data-i18n="portalPathTitle">Parcours</strong>
@@ -293,12 +309,23 @@
             </a>
 
             <a class="route-card route-card-contact reveal delay-3" href="#contact" data-route-tone="gold">
-              <span class="route-index">07</span>
+              <span class="route-index">08</span>
               <span class="route-glyph route-glyph-contact" aria-hidden="true"></span>
               <span class="route-body">
                 <strong data-i18n="portalContactTitle">Contact</strong>
                 <span data-i18n="portalContactText">Email, LinkedIn, disponibilité et mobilité.</span>
                 <em data-i18n="portalContactMeta">Échange</em>
+              </span>
+              <span class="route-arrow" aria-hidden="true"></span>
+            </a>
+
+            <a class="route-card reveal delay-3" href="mentions-legales.html" data-route-tone="blue">
+              <span class="route-index">09</span>
+              <span class="route-glyph route-glyph-legal" aria-hidden="true"></span>
+              <span class="route-body">
+                <strong data-i18n="portalLegalTitle">Mentions légales</strong>
+                <span data-i18n="portalLegalText">Droits d'auteur, marques citées, PDF, badges et données personnelles.</span>
+                <em data-i18n="portalLegalMeta">Cadre légal</em>
               </span>
               <span class="route-arrow" aria-hidden="true"></span>
             </a>
@@ -335,6 +362,19 @@
               <p data-i18n="aboutProofSecurityText">PMP, RACI, EBIOS RM, CISO Assistant, PCA/PRA et plans de remédiation.</p>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section class="section section-muted content-page page-section" id="apports" data-page="apports" aria-labelledby="contributions-title">
+        <div class="container">
+          <div class="section-heading narrow reveal">
+            <p class="eyebrow" data-i18n="contributionsEyebrow">Apports</p>
+            <h2 id="contributions-title" data-i18n="contributionsTitle">Ce que je peux apporter</h2>
+            <p data-i18n="contributionsText">
+              Une lecture concrète de ma valeur en entreprise : exploitation fiable, projets infrastructure, sécurité et coordination.
+            </p>
+          </div>
+          <div class="contribution-grid" id="contribution-grid"></div>
         </div>
       </section>
 
@@ -410,6 +450,10 @@
             </ul>
           </div>
 
+          <p class="legal-note reveal delay-1" data-i18n="cesiDisclaimer">
+            Projet pédagogique réalisé dans le cadre de la formation CESI. Les marques, outils et organismes cités appartiennent à leurs titulaires respectifs. Document présenté uniquement à des fins de démonstration de compétences.
+          </p>
+
           <div class="filter-bar reveal" id="cube-filters" role="list" aria-label="Filtrer les cubes CESI" data-i18n-aria="filterAria"></div>
           <div class="cubes-grid" id="cubes-grid" aria-live="polite"></div>
         </div>
@@ -478,10 +522,28 @@
       </section>
     </main>
 
+    <nav class="section-nav" aria-label="Navigation entre sections" data-section-nav data-i18n-aria="sectionNavAria">
+      <button class="section-nav-button section-nav-button-prev" type="button" aria-label="Section précédente" data-section-nav-prev data-i18n-aria="sectionPrev">
+        <span class="section-nav-arrow" aria-hidden="true"></span>
+        <span class="section-nav-tooltip" data-i18n="sectionPrev">Section précédente</span>
+      </button>
+      <div class="section-nav-status" aria-live="polite" aria-atomic="true">
+        <span data-section-nav-count>1 / 10</span>
+        <strong data-section-nav-label>Synthèse</strong>
+      </div>
+      <button class="section-nav-button section-nav-button-next" type="button" aria-label="Section suivante" data-section-nav-next data-i18n-aria="sectionNext">
+        <span class="section-nav-arrow" aria-hidden="true"></span>
+        <span class="section-nav-tooltip" data-i18n="sectionNext">Section suivante</span>
+      </button>
+    </nav>
+
     <footer class="site-footer">
       <div class="container footer-inner">
         <p>© <span data-current-year></span> <span data-profile="name">Théo BORTOLOTTO</span>. <span data-i18n="footerSuffix">Portfolio</span></p>
-        <a href="#accueil">Retour à l'accueil</a>
+        <div class="footer-links">
+          <a href="#accueil" data-i18n="footerHomeLink">Retour à l'accueil</a>
+          <a href="mentions-legales.html" data-i18n="legalLink">Mentions légales</a>
+        </div>
       </div>
     </footer>
 

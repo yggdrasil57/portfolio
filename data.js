@@ -1,6 +1,8 @@
 window.portfolioData = {
   profile: {
     name: "Théo BORTOLOTTO",
+    firstName: "Théo",
+    lastName: "BORTOLOTTO",
     initials: "TB",
     role: "Administrateur Systèmes & Réseaux",
     location: "Nancy / Luxembourg",
@@ -93,6 +95,37 @@ window.portfolioData = {
       title: "Documentation et cartographie",
       text: "Plans réseau, inventaires et notes techniques : c'est moins spectaculaire, mais très utile pour exploiter un SI.",
       link: ""
+    }
+  ],
+
+  contributions: [
+    {
+      title: "Support & exploitation",
+      text:
+        "Je peux contribuer à améliorer le traitement des demandes utilisateurs, la gestion des tickets, la documentation des procédures, l'inventaire du matériel et le suivi des incidents récurrents.",
+      icon: "support",
+      tone: "accent"
+    },
+    {
+      title: "Infrastructure IT",
+      text:
+        "Je peux intervenir sur des projets liés aux systèmes, aux réseaux, à Microsoft 365, à la supervision, aux sauvegardes, à la migration de postes ou à l'amélioration de l'environnement technique.",
+      icon: "infrastructure",
+      tone: "blue"
+    },
+    {
+      title: "Cybersécurité",
+      text:
+        "Je peux aider à identifier les risques, documenter les bonnes pratiques, sensibiliser les utilisateurs, sécuriser les accès, participer à la réflexion sur le PCA/PRA et appliquer une approche structurée de la sécurité.",
+      icon: "security",
+      tone: "coral"
+    },
+    {
+      title: "Management & coordination IT",
+      text:
+        "Mon expérience de référent informatique en EHPAD m'a amené à piloter des projets IT de bout en bout, coordonner des équipes et prestataires, suivre les actions et faire le lien entre les utilisateurs, les équipes techniques et la direction.",
+      icon: "project",
+      tone: "gold"
     }
   ],
 
@@ -373,6 +406,8 @@ window.portfolioData = {
 window.portfolioDataEn = {
   profile: {
     name: "Théo BORTOLOTTO",
+    firstName: "Théo",
+    lastName: "BORTOLOTTO",
     initials: "TB",
     role: "Systems & Network Administrator",
     location: "Nancy / Luxembourg",
@@ -465,6 +500,37 @@ window.portfolioDataEn = {
       title: "Documentation and mapping",
       text: "Network diagrams, inventories and technical notes: less flashy, but very useful for operating an IS.",
       link: ""
+    }
+  ],
+
+  contributions: [
+    {
+      title: "Support & operations",
+      text:
+        "I can help improve user request handling, ticket management, procedure documentation, hardware inventory and recurring incident follow-up.",
+      icon: "support",
+      tone: "accent"
+    },
+    {
+      title: "IT infrastructure",
+      text:
+        "I can contribute to projects involving systems, networks, Microsoft 365, monitoring, backups, workstation migration and technical environment improvements.",
+      icon: "infrastructure",
+      tone: "blue"
+    },
+    {
+      title: "Cybersecurity mindset",
+      text:
+        "I can help identify risks, document best practices, raise user awareness, secure access, contribute to business continuity discussions and apply a structured security approach.",
+      icon: "security",
+      tone: "coral"
+    },
+    {
+      title: "IT management & coordination",
+      text:
+        "My experience as an IT coordinator in a nursing home led me to manage IT projects end to end, coordinate teams and providers, track actions and act as a link between users, technical teams and management.",
+      icon: "project",
+      tone: "gold"
     }
   ],
 
@@ -749,6 +815,7 @@ window.portfolioUi = {
       "Portfolio de Théo BORTOLOTTO : systèmes, réseaux, cybersécurité, gestion de projet et documents de cubes CESI consultables.",
     navHome: "Synthèse",
     navAbout: "A propos",
+    navContributions: "Apports",
     navSkills: "Compétences",
     navProfile: "Méthode",
     navCubes: "Cubes CESI",
@@ -762,6 +829,9 @@ window.portfolioUi = {
     portalAboutTitle: "Synthèse profil",
     portalAboutText: "Parcours, objectif, positionnement et informations rapides.",
     portalAboutMeta: "Profil",
+    portalContributionsTitle: "Ce que je peux apporter",
+    portalContributionsText: "Impact concret pour le support, l'infrastructure, la sécurité, le projet et la coordination.",
+    portalContributionsMeta: "Valeur",
     portalSkillsTitle: "Socle technique",
     portalSkillsText: "Systèmes, réseau, support, projet et cybersécurité.",
     portalSkillsMeta: "Compétences",
@@ -780,6 +850,9 @@ window.portfolioUi = {
     portalContactTitle: "Contact",
     portalContactText: "Email, LinkedIn, disponibilité et mobilité.",
     portalContactMeta: "Échange",
+    portalLegalTitle: "Mentions légales",
+    portalLegalText: "Droits d'auteur, marques citées, PDF, badges et données personnelles.",
+    portalLegalMeta: "Cadre légal",
     searchLabel: "Recherche actuelle",
     visualTitle: "Points clés du CV",
     visualBadge: "Technique + pilotage",
@@ -818,6 +891,10 @@ window.portfolioUi = {
     aboutProofNetworkText: "Cisco, Aruba, supervision, schémas réseau, migrations et environnements industriels.",
     aboutProofSecurityTitle: "Projet & sécurité",
     aboutProofSecurityText: "PMP, RACI, EBIOS RM, CISO Assistant, PCA/PRA et plans de remédiation.",
+    contributionsEyebrow: "Valeur ajoutée",
+    contributionsTitle: "Ce que je peux apporter",
+    contributionsText:
+      "Une lecture concrète de ma valeur en entreprise : exploitation fiable, projets infrastructure, cybersécurité, coordination et management opérationnel.",
     skillsEyebrow: "Compétences",
     skillsTitle: "Compétences utilisées en alternance et sur mes projets",
     skillsText:
@@ -871,6 +948,13 @@ window.portfolioUi = {
     contactText:
       "Email et LinkedIn : le plus simple pour me joindre directement.",
     footerSuffix: "Portfolio",
+    footerHomeLink: "Retour à l'accueil",
+    legalLink: "Mentions légales",
+    sectionNavAria: "Navigation entre sections du portfolio",
+    sectionPrev: "Section précédente",
+    sectionNext: "Section suivante",
+    cesiDisclaimer:
+      "Projet pédagogique réalisé dans le cadre de la formation CESI. Les marques, outils et organismes cités appartiennent à leurs titulaires respectifs. Document présenté uniquement à des fins de démonstration de compétences.",
     allFilter: "Tous",
     problemLabel: "Problématique",
     contextLabel: "Contexte",
@@ -902,6 +986,7 @@ window.portfolioUi = {
       "Portfolio of Théo BORTOLOTTO: systems, networks, cybersecurity, project management and viewable CESI case documents.",
     navHome: "Summary",
     navAbout: "About",
+    navContributions: "Value",
     navSkills: "Skills",
     navProfile: "Approach",
     navCubes: "CESI Cases",
@@ -915,6 +1000,9 @@ window.portfolioUi = {
     portalAboutTitle: "Profile summary",
     portalAboutText: "Path, objective, positioning and quick information.",
     portalAboutMeta: "Profile",
+    portalContributionsTitle: "What I can bring",
+    portalContributionsText: "Concrete impact for support, infrastructure, security, project work and coordination.",
+    portalContributionsMeta: "Value",
     portalSkillsTitle: "Technical base",
     portalSkillsText: "Systems, network, support, project work and cybersecurity.",
     portalSkillsMeta: "Skills",
@@ -933,6 +1021,9 @@ window.portfolioUi = {
     portalContactTitle: "Contact",
     portalContactText: "Email, LinkedIn, availability and mobility.",
     portalContactMeta: "Exchange",
+    portalLegalTitle: "Legal notice",
+    portalLegalText: "Copyright, cited brands, PDFs, badges and personal data.",
+    portalLegalMeta: "Legal",
     searchLabel: "Current search",
     visualTitle: "Resume highlights",
     visualBadge: "Technical + delivery",
@@ -971,6 +1062,10 @@ window.portfolioUi = {
     aboutProofNetworkText: "Cisco, Aruba, monitoring, network diagrams, migrations and industrial environments.",
     aboutProofSecurityTitle: "Project & security",
     aboutProofSecurityText: "PMP, RACI, EBIOS RM, CISO Assistant, BCP/DRP and remediation plans.",
+    contributionsEyebrow: "Added value",
+    contributionsTitle: "What I can bring",
+    contributionsText:
+      "A concrete view of my value in a company: reliable operations, infrastructure projects, cybersecurity, coordination and operational management.",
     skillsEyebrow: "Skills",
     skillsTitle: "Tools I use in work-study roles and projects",
     skillsText:
@@ -1024,6 +1119,13 @@ window.portfolioUi = {
     contactText:
       "Email and LinkedIn: the simplest ways to reach me directly.",
     footerSuffix: "Portfolio",
+    footerHomeLink: "Back to home",
+    legalLink: "Legal notice",
+    sectionNavAria: "Portfolio section navigation",
+    sectionPrev: "Previous section",
+    sectionNext: "Next section",
+    cesiDisclaimer:
+      "Educational project completed as part of the CESI training program. Brands, tools and organizations mentioned belong to their respective owners. Document shown only to demonstrate skills.",
     allFilter: "All",
     problemLabel: "Problem",
     contextLabel: "Context",

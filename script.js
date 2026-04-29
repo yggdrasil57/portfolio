@@ -48,6 +48,10 @@ function getSafeUrl(value, allowedProtocols = ["http:", "https:", "file:"]) {
   }
 }
 
+function safeCssToken(value, fallback = "accent") {
+  return /^[a-z0-9-]+$/i.test(value || "") ? value : fallback;
+}
+
 function documentCountLabel(count) {
   if (!count) return t("documentationOnRequest");
   if (currentLocale === "fr") {
@@ -131,6 +135,98 @@ function updatePageLinks(pageId) {
   });
 }
 
+function getPrimarySectionId(pageId) {
+  return getPageSections().find((section) => section.dataset.page === pageId)?.id || pageId;
+}
+
+function getSectionNavigationItems() {
+  const pageItems = getPageIds().map((pageId) => ({
+    pageId,
+    targetId: getPrimarySectionId(pageId),
+    label: getPageLabel(pageId) || t("navHome")
+  }));
+
+  return [
+    ...pageItems,
+    {
+      pageId: "mentions-legales",
+      href: "mentions-legales.html",
+      label: t("legalLink")
+    }
+  ];
+}
+
+function updateSectionNavigation(pageId) {
+  const nav = $("[data-section-nav]");
+  if (!nav) return;
+
+  const items = getSectionNavigationItems();
+  const index = items.findIndex((item) => item.pageId === pageId);
+  const isReady = items.length > 1 && index >= 0;
+
+  nav.hidden = !isReady;
+  if (!isReady) return;
+
+  const previousButton = $("[data-section-nav-prev]", nav);
+  const nextButton = $("[data-section-nav-next]", nav);
+  const count = $("[data-section-nav-count]", nav);
+  const label = $("[data-section-nav-label]", nav);
+  const currentItem = items[index];
+
+  if (count) {
+    count.textContent = `${index + 1} / ${items.length}`;
+  }
+
+  if (label) {
+    label.textContent = currentItem.label;
+  }
+
+  [
+    [previousButton, index === 0],
+    [nextButton, index === items.length - 1]
+  ].forEach(([button, disabled]) => {
+    if (!button) return;
+    button.disabled = disabled;
+    button.setAttribute("aria-disabled", String(disabled));
+  });
+}
+
+function pulseSectionButton(button) {
+  if (!button || prefersReducedMotion) return;
+
+  button.classList.remove("is-pulsing");
+  void button.offsetWidth;
+  button.classList.add("is-pulsing");
+  window.setTimeout(() => button.classList.remove("is-pulsing"), 520);
+}
+
+function navigateSection(direction, sourceButton) {
+  const items = getSectionNavigationItems();
+  const currentIndex = items.findIndex((item) => item.pageId === currentPageId);
+  const targetIndex = currentIndex + direction;
+
+  if (currentIndex < 0 || targetIndex < 0 || targetIndex >= items.length) return;
+
+  const targetItem = items[targetIndex];
+  pulseSectionButton(sourceButton);
+
+  if (targetItem.href) {
+    window.setTimeout(
+      () => {
+        window.location.href = targetItem.href;
+      },
+      prefersReducedMotion ? 0 : 90
+    );
+    return;
+  }
+
+  activatePage(targetItem.pageId, {
+    targetId: targetItem.targetId,
+    scroll: true,
+    updateHash: true
+  });
+}
+
 function scrollToPageTarget(pageId, targetId, { smooth = true } = {}) {
   const target = document.getElementById(targetId);
   const targetPage = target?.closest?.(".page-section[data-page]")?.dataset.page;
@@ -176,6 +272,7 @@ function activatePage(pageId = "accueil", { targetId = pageId, scroll = true, up
 
   updatePageLinks(nextPageId);
   updatePageTitle(nextPageId);
+  updateSectionNavigation(nextPageId);
 
   if (updateHash) {
     const nextHash = `#${nextTargetId}`;
@@ -337,6 +434,28 @@ function renderSkills() {
         </article>
       `
     )
+    .join("");
+}
+
+function renderContributions() {
+  const container = $("#contribution-grid");
+  if (!container) return;
+
+  container.innerHTML = (data.contributions || [])
+    .map((item) => {
+      const icon = safeCssToken(item.icon, "support");
+      const tone = safeCssToken(item.tone, "accent");
+
+      return `
+        <article class="contribution-card reveal" data-contribution-tone="${escapeHtml(tone)}">
+          <span class="contribution-icon contribution-icon-${escapeHtml(icon)}" aria-hidden="true"></span>
+          <div>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.text)}</p>
+          </div>
+        </article>
+      `;
+    })
     .join("");
 }
 
@@ -586,6 +705,7 @@ function renderPage({ resetFilter = false } = {}) {
 
   setStaticContent();
   setProfileContent();
+  renderContributions();
   renderSkills();
   renderProfileExtras();
   renderFilters();
@@ -666,11 +786,23 @@ function setupInteractions() {
 
 }
 
+function setupSectionNavigationControls() {
+  const nav = $("[data-section-nav]");
+  if (!nav) return;
+
+  const previousButton = $("[data-section-nav-prev]", nav);
+  const nextButton = $("[data-section-nav-next]", nav);
+
+  previousButton?.addEventListener("click", () => navigateSection(-1, previousButton));
+  nextButton?.addEventListener("click", () => navigateSection(1, nextButton));
+}
+
 function setupPageNavigation() {
   const pageIds = getPageIds();
   if (!pageIds.length) return;
 
   pageNavigationReady = true;
+  setupSectionNavigationControls();
   syncPageWithLocation({ scroll: Boolean(getRouteFromHash(window.location.hash)) });
 
   document.addEventListener("click", (event) => {
@@ -709,6 +841,7 @@ function setupInteractiveSurfaces(root = document) {
     ".skill-card",
     ".cube-card",
     ".project-card",
+    ".contribution-card",
     ".route-card",
     ".trait-card",
     ".recognition-card",
