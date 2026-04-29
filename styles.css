@@ -3977,6 +3977,7 @@ html.has-page-routing .page-section.is-active-page .reveal {
   }
 
   .experience-path,
+  .recognition-block,
   .profile-extra-block + .profile-extra-block,
   .contact-links {
     grid-column: auto;
