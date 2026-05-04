@@ -1,0 +1,19 @@
+<svg width="900" height="675" viewBox="0 0 900 675" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Portrait professionnel illustré</title>
+  <desc id="desc">Placeholder sobre pour remplacer par une photo personnelle.</desc>
+  <rect width="900" height="675" fill="#EEF2F1"/>
+  <path d="M0 517C109 458 212 455 309 508C406 561 535 604 676 533C770 486 845 485 900 532V675H0V517Z" fill="#DDE8E4"/>
+  <path d="M128 106H772V569H128V106Z" fill="#F9FBFA" stroke="#C8D8D3" stroke-width="2"/>
+  <path d="M202 174H477" stroke="#176B62" stroke-width="16" stroke-linecap="round"/>
+  <path d="M202 220H403" stroke="#A7BBB5" stroke-width="12" stroke-linecap="round"/>
+  <path d="M202 260H503" stroke="#D1DEDA" stroke-width="12" stroke-linecap="round"/>
+  <circle cx="604" cy="270" r="72" fill="#176B62"/>
+  <path d="M485 472C503 408 549 374 604 374C659 374 705 408 723 472" fill="#176B62"/>
+  <path d="M202 412H384" stroke="#176B62" stroke-width="14" stroke-linecap="round"/>
+  <path d="M202 452H440" stroke="#A7BBB5" stroke-width="12" stroke-linecap="round"/>
+  <path d="M202 492H351" stroke="#D1DEDA" stroke-width="12" stroke-linecap="round"/>
+  <rect x="128" y="106" width="644" height="64" fill="#FFFFFF" stroke="#C8D8D3" stroke-width="2"/>
+  <circle cx="172" cy="138" r="8" fill="#D36F45"/>
+  <circle cx="202" cy="138" r="8" fill="#D6A85C"/>
+  <circle cx="232" cy="138" r="8" fill="#176B62"/>
+</svg>

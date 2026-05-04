@@ -261,12 +261,6 @@ function activatePage(pageId = "accueil", { targetId = pageId, scroll = true, up
 
   currentPageId = nextPageId;
   document.documentElement.classList.add("has-page-routing");
-  if (!prefersReducedMotion) {
-    document.documentElement.classList.remove("is-page-switching");
-    void document.documentElement.offsetWidth;
-    document.documentElement.classList.add("is-page-switching");
-    window.setTimeout(() => document.documentElement.classList.remove("is-page-switching"), 720);
-  }
   document.body.dataset.activePage = nextPageId;
 
   pageSections.forEach((section) => {
@@ -274,10 +268,6 @@ function activatePage(pageId = "accueil", { targetId = pageId, scroll = true, up
     section.hidden = !isActive;
     section.classList.toggle("is-active-page", isActive);
     section.setAttribute("aria-hidden", String(!isActive));
-
-    if (isActive && !prefersReducedMotion) {
-      $$(".reveal", section).forEach((element) => element.classList.remove("is-visible"));
-    }
   });
 
   updatePageLinks(nextPageId);
@@ -883,7 +873,8 @@ function setupTheme() {
   if (!button) return;
 
   const storedTheme = localStorage.getItem("portfolio-theme");
-  const initialTheme = ["light", "dark"].includes(storedTheme) ? storedTheme : "light";
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const initialTheme = storedTheme || systemTheme;
   const themeColor = $('meta[name="theme-color"]');
 
   const applyTheme = (theme) => {

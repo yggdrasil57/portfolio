@@ -909,7 +909,7 @@ window.portfolioUi = {
     softSkillsTitle: "Soft skills",
     interestsTitle: "Centres d'intérêt utiles au métier",
     cubesEyebrow: "Cubes CESI",
-    cubesTitle: "Cubes CESI",
+    cubesTitle: "Cubes CESI replacés dans leur contexte",
     cubesText:
       "Pour chaque cube : problème de départ, démarche, outils utilisés, référentiels, livrables et PDF intégrés.",
     cubesIntroTitle: "C'est quoi un Cube CESI ?",
@@ -1083,7 +1083,7 @@ window.portfolioUi = {
     softSkillsTitle: "Soft skills",
     interestsTitle: "Role-relevant interests",
     cubesEyebrow: "CESI cases",
-    cubesTitle: "CESI cases",
+    cubesTitle: "CESI cases with their context",
     cubesText:
       "For each case: starting issue, approach, tools, references, deliverables and viewable documents.",
     cubesIntroTitle: "What is a CESI Cube?",

@@ -1,0 +1,28 @@
+<svg width="420" height="420" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Badge Citoyen Responsable - Dynamique</title>
+  <desc id="desc">Badge hexagonal CESI Citoyen Responsable, niveau dynamique.</desc>
+  <defs>
+    <filter id="shadow" x="52" y="54" width="316" height="318" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="14"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0901961 0 0 0 0 0.0901961 0 0 0 0 0.105882 0 0 0 0.16 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+  </defs>
+  <rect width="420" height="420" rx="34" fill="#F7F7F4"/>
+  <g filter="url(#shadow)">
+    <path d="M210 55L340 130V280L210 355L80 280V130L210 55Z" fill="#AEA1D8"/>
+    <path d="M210 78L318 141V266L210 329L102 266V141L210 78Z" fill="#FCFBF5"/>
+    <path d="M210 91L306 147V259L210 315L114 259V147L210 91Z" stroke="#161616" stroke-width="6"/>
+    <path d="M114 213H306V259L210 315L114 259V213Z" fill="#B2A7D8"/>
+    <rect x="74" y="176" width="272" height="52" fill="#FFE100"/>
+    <path d="M199 128C199 115 207 108 219 108C230 108 238 116 238 128V135H225V128C225 123 223 120 219 120C215 120 213 123 213 128V151C213 156 215 159 219 159C223 159 225 156 225 151V144H238V151C238 163 230 171 219 171C207 171 199 163 199 151V128Z" fill="#161616"/>
+    <rect x="200" y="178" width="20" height="8" fill="#FFE100"/>
+    <text x="210" y="207" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="900" fill="#161616" transform="scale(0.86 1) translate(34 0)">CITOYEN RESPONSABLE</text>
+    <text x="210" y="265" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="900" letter-spacing="2" fill="#161616">DYNAMIQUE</text>
+  </g>
+</svg>

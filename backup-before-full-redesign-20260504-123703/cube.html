@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Détail d'un Cube CESI de Théo BORTOLOTTO avec documents, livrables et aperçu du contenu."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Portfolio Théo BORTOLOTTO">
+    <meta property="og:title" content="Cube CESI | Théo BORTOLOTTO">
+    <meta property="og:description" content="Détail d'un projet CESI : contexte, livrables, documents et compétences techniques.">
+    <meta property="og:url" content="https://yggdrasil57.github.io/portfolio/cube.html">
+    <meta property="og:image" content="https://yggdrasil57.github.io/portfolio/assets/social-preview.png">
+    <meta property="og:image:secure_url" content="https://yggdrasil57.github.io/portfolio/assets/social-preview.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Portfolio de Théo BORTOLOTTO, administrateur systèmes et réseaux.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cube CESI | Théo BORTOLOTTO">
+    <meta name="twitter:description" content="Contexte, livrables, documents et compétences techniques.">
+    <meta name="twitter:image" content="https://yggdrasil57.github.io/portfolio/assets/social-preview.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self'; form-action 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+    <meta name="theme-color" content="#f7f8f7">
+    <title>Cube CESI | Théo BORTOLOTTO</title>
+    <link rel="image_src" href="assets/social-preview.png">
+    <link rel="icon" href="assets/profile-placeholder.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="data.js" defer></script>
+    <script src="cube-detail.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+
+    <header class="site-header is-scrolled" data-header>
+      <nav class="nav container" aria-label="Navigation principale">
+        <a class="brand" href="index.html#accueil" aria-label="Retour à l'accueil">
+          <span class="brand-mark" data-profile="initials">TB</span>
+          <span class="brand-text" data-profile="name">Théo BORTOLOTTO</span>
+        </a>
+
+        <div class="nav-panel nav-panel-detail">
+          <a href="index.html#apropos" data-i18n="navAbout">A propos</a>
+          <a href="index.html#competences" data-i18n="navSkills">Compétences</a>
+          <a href="index.html#cubes" data-i18n="navCubes">Cubes CESI</a>
+          <a href="index.html#contact" data-i18n="navContact">Contact</a>
+          <a href="mentions-legales.html" data-i18n="legalLink">Mentions légales</a>
+        </div>
+
+        <div class="nav-actions">
+          <a class="btn btn-small btn-secondary" href="index.html#cubes" data-i18n="cubePageBack">Retour au portfolio</a>
+          <button
+            class="language-toggle"
+            type="button"
+            aria-label="Switch to English"
+            data-language-toggle
+          >
+            EN
+          </button>
+          <button
+            class="icon-button"
+            type="button"
+            aria-label="Activer le mode sombre"
+            data-theme-toggle
+            data-i18n-aria="darkMode"
+          >
+            <span class="theme-glyph" aria-hidden="true"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="cube-page">
+      <section class="cube-detail-hero">
+        <div class="container cube-detail-hero-inner">
+          <p class="eyebrow" data-i18n="cubePageEyebrow">Détail du Cube CESI</p>
+          <h1 id="cube-detail-title">Cube CESI</h1>
+          <p class="hero-lead" id="cube-detail-summary"></p>
+          <div class="cube-detail-actions" id="cube-document-actions"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container cube-detail-layout">
+          <aside class="cube-detail-sidebar" aria-label="Résumé du cube">
+            <div class="detail-panel" id="cube-detail-meta"></div>
+          </aside>
+
+          <div class="cube-detail-main">
+            <section class="document-section" aria-labelledby="document-viewer-title">
+              <div class="document-heading">
+                <div>
+                  <p class="eyebrow" data-i18n="cubeDocumentsTitle">Documents du cube</p>
+                  <h2 id="document-viewer-title" data-i18n="cubeViewerTitle">Visualisation du document</h2>
+                </div>
+              </div>
+              <p class="legal-note legal-note-compact" data-i18n="cesiDisclaimer">
+                Projet pédagogique réalisé dans le cadre de la formation CESI. Les marques, outils et organismes cités appartiennent à leurs titulaires respectifs. Document présenté uniquement à des fins de démonstration de compétences.
+              </p>
+              <div class="document-viewer" id="document-viewer"></div>
+            </section>
+
+            <section class="document-section" aria-labelledby="document-list-title">
+              <div class="document-heading">
+                <h2 id="document-list-title" data-i18n="cubeDownloadTitle">Choisir un document</h2>
+              </div>
+              <div class="document-list" id="document-list"></div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span data-current-year></span> <span data-profile="name">Théo BORTOLOTTO</span>. <span data-i18n="footerSuffix">Portfolio</span></p>
+        <div class="footer-links">
+          <a href="index.html#cubes" data-i18n="cubePageBack">Retour au portfolio</a>
+          <a href="mentions-legales.html" data-i18n="legalLink">Mentions légales</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

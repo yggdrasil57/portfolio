@@ -339,7 +339,8 @@ function renderCubeDetail() {
 function setupTheme() {
   const button = $("[data-theme-toggle]");
   const storedTheme = localStorage.getItem("portfolio-theme");
-  const initialTheme = ["light", "dark"].includes(storedTheme) ? storedTheme : "light";
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  const initialTheme = storedTheme || systemTheme;
 
   const applyTheme = (theme) => {
     document.documentElement.dataset.theme = theme;
